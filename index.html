@@ -286,14 +286,6 @@
       xhr.open("GET", "results_verilog.json", false); // false makes the request synchronous
       xhr.send();
 
-      const calcAverage = (a, b) => {
-        if (a == null || b == null) {
-          return null;
-        } else {
-          return parseFloat(((parseFloat(a) + parseFloat(b)) / 2).toFixed(1));
-        }
-      };
-
       var data;
       /*
       After calculating the average, the data should be like this:

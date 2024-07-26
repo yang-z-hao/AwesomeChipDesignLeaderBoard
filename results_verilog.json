@@ -10,7 +10,7 @@
             "RTLLM_V1.1_Syntax":"89.7",
             "RTLLM_V1.1_Func":"37.9"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":""
     },
     "GPT-4":{
@@ -24,7 +24,7 @@
             "RTLLM_V1.1_Syntax":"100",
             "RTLLM_V1.1_Func":"65.5"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":""
     },
     "StarCoder":{
@@ -38,7 +38,7 @@
             "RTLLM_V1.1_Syntax":"93.1",
             "RTLLM_V1.1_Func":"27.6"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":""
     },
     "VeriGen-Codegen-16B":{
@@ -52,7 +52,7 @@
             "RTLLM_V1.1_Syntax":"86.2",
             "RTLLM_V1.1_Func":"24.1"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":16.0
     },
     "VerilogEval-codegen-16B-verilog-sft":{
@@ -66,7 +66,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":16.0
     },
     "VerilogEval-codegen-16B-multi-sft":{
@@ -80,7 +80,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":16.0
     },
     "VerilogEval-codegen-6B-verilog-sft":{
@@ -94,7 +94,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":6.0
     },
     "VerilogEval-codegen-6B-multi-sft":{
@@ -108,7 +108,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":6.0
     },
     "VerilogEval-codegen-2B-verilog-sft":{
@@ -122,7 +122,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":2.0
     },
     "VerilogEval-codegen-2B-multi-sft":{
@@ -136,7 +136,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":2.0
     },
     "VerilogEval-codegen-350M-multi-sft":{
@@ -150,7 +150,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":"350m"
     },
     "RTLCoder-Mistral-4bit":{
@@ -164,7 +164,7 @@
             "RTLLM_V1.1_Syntax":"86.2",
             "RTLLM_V1.1_Func":"41.4"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":"350m"
     },
     "RTLCoder-DeepSeek-4bit":{
@@ -178,7 +178,7 @@
             "RTLLM_V1.1_Syntax":"93.1",
             "RTLLM_V1.1_Func":"37.9"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":6.7
     },
     "RTLCoder-Mistral":{
@@ -192,7 +192,7 @@
             "RTLLM_V1.1_Syntax":"96.6",
             "RTLLM_V1.1_Func":"48.3"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "RTLCoder-DeepSeek":{
@@ -206,7 +206,7 @@
             "RTLLM_V1.1_Syntax":"93.1",
             "RTLLM_V1.1_Func":"48.3"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":6.7
     },
     "RTLCoder-Mistral-10k":{
@@ -220,7 +220,7 @@
             "RTLLM_V1.1_Syntax":"86.2",
             "RTLLM_V1.1_Func":"34.5"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "RTLCoder-DeepSeek-10k":{
@@ -234,7 +234,7 @@
             "RTLLM_V1.1_Syntax":"79.3",
             "RTLLM_V1.1_Func":"37.9"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":6.7
     },
     "RTLCoder-Mistral-Direct":{
@@ -248,7 +248,7 @@
             "RTLLM_V1.1_Syntax":"89.7",
             "RTLLM_V1.1_Func":"41.4"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "RTLCoder-DeepSeek-Direct":{
@@ -262,7 +262,7 @@
             "RTLLM_V1.1_Syntax":"86.2",
             "RTLLM_V1.1_Func":"44.8"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":6.7
     },
     "Llama2-13B-FT":{
@@ -276,7 +276,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":13.0
     },
     "Llama2-7B-FT":{
@@ -290,7 +290,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "ChipNeMo-7B":{
@@ -304,7 +304,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "ChipNeMo-13B":{
@@ -318,7 +318,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":13.0
     },
     "ChipNeMo-70B":{
@@ -332,7 +332,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":70.0
     },
     "CodeGen-2B fine-grained labels":{
@@ -346,7 +346,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":2.0
     },
     "CodeGen-6B fine-grained labels":{
@@ -360,7 +360,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":6.0
     },
     "CodeGen-16B fine-grained labels":{
@@ -374,7 +374,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":16.0
     },
     "CodeGen-2B MEV-LLM":{
@@ -388,7 +388,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":2.0
     },
     "CodeGen-6B MEV-LLM":{
@@ -402,7 +402,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":6.0
     },
     "CodeGen-16B MEV-LLM":{
@@ -416,7 +416,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":16.0
     },
     "GEMMA-2B fine-grained labels":{
@@ -430,7 +430,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":2.0
     },
     "GEMMA-7B fine-grained labels":{
@@ -444,7 +444,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "GEMMA-2B MEV-LLM":{
@@ -458,7 +458,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":2.0
     },
     "GEMMA-7B MEV-LLM":{
@@ -472,7 +472,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "BetterV-CodeLlama":{
@@ -486,7 +486,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "BetterV-DeepSeek":{
@@ -500,7 +500,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":6.7
     },
     "BetterV-CodeQwen":{
@@ -514,7 +514,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "BetterV-CodeLlama-base":{
@@ -528,7 +528,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "CodeLlama-Dis":{
@@ -542,7 +542,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "ITERTL-DeepSeek-10k":{
@@ -556,7 +556,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":6.7
     },
     "Proposed Model":{
@@ -570,7 +570,7 @@
             "RTLLM_V1.1_Syntax":"",
             "RTLLM_V1.1_Func":""
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "CodeV-CodeLlama":{
@@ -584,7 +584,7 @@
             "RTLLM_V1.1_Syntax":"93.1",
             "RTLLM_V1.1_Func":"62.1"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     },
     "CodeV-DeepSeek":{
@@ -598,7 +598,7 @@
             "RTLLM_V1.1_Syntax":"89.7",
             "RTLLM_V1.1_Func":"55.2"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":6.7
     },
     "CodeV-CodeQwen":{
@@ -612,7 +612,7 @@
             "RTLLM_V1.1_Syntax":"93.1",
             "RTLLM_V1.1_Func":"55.2"
         },
-        "prompt":"prompt",
+        "prompted":"null",
         "size":7.0
     }
 }

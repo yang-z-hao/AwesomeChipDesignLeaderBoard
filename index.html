@@ -610,9 +610,9 @@
 
       const verilogeval_humanRadio = document.getElementById("verilogeval_human");
       const verilogeval_machineRadio = document.getElementById("verilogeval_machine");
-      const rtllm1syntaxRadio = document.getElementById("RTLLM_V1.0_Syntax")
-      const rtllm1funcRadio = document.getElementById("RTLLM_V1.0_Func")
-      const rtllm11syntaxRadio = document.getElementById("RTLLM_V1.1_Syntax")
+      //const rtllm1syntaxRadio = document.getElementById("RTLLM_V1.0_Syntax")
+      //const rtllm1funcRadio = document.getElementById("RTLLM_V1.0_Func")
+      //const rtllm11syntaxRadio = document.getElementById("RTLLM_V1.1_Syntax")
       const rtllm11funcRadio = document.getElementById("RTLLM_V1.1_Func")
 
       verilogeval_humanRadio.addEventListener("click", function () {
@@ -631,6 +631,13 @@
         displayChart("verilogeval_machine");
       });
 
+      rtllm11funcRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "verilogeval_machine");
+        displayTable(plusedTable, "mbpp+");
+        clearChart();
+        displayChart("verilogeval_machine");
+      });
 
       verilogeval_humanRadio.click();
 

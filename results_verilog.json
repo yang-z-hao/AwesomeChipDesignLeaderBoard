@@ -1,7 +1,7 @@
 {
     "GPT-3.5":{
-        "link":null,
-        "open-data":null,
+        "link":"",
+        "open-data":"",
         "pass@1":{
             "verilogeval_machine":"46.7",
             "verilogeval_human":"26.7",
@@ -10,12 +10,12 @@
             "RTLLM_V1.1_Syntax":"89.7",
             "RTLLM_V1.1_Func":"37.9"
         },
-        "prompted":null,
-        "size":null
+        "prompted":"null",
+        "size":"null"
     },
     "GPT-4":{
-        "link":null,
-        "open-data":null,
+        "link":"",
+        "open-data":"",
         "pass@1":{
             "verilogeval_machine":"47.9",
             "verilogeval_human":"27.0",
@@ -24,12 +24,12 @@
             "RTLLM_V1.1_Syntax":"100",
             "RTLLM_V1.1_Func":"65.5"
         },
-        "prompted":null,
-        "size":null
+        "prompted":"null",
+        "size":"null"
     },
     "StarCoder":{
-        "link":null,
-        "open-data":null,
+        "link":"",
+        "open-data":"",
         "pass@1":{
             "verilogeval_machine":"46.8",
             "verilogeval_human":"18.1",
@@ -38,8 +38,8 @@
             "RTLLM_V1.1_Syntax":"93.1",
             "RTLLM_V1.1_Func":"27.6"
         },
-        "prompted":null,
-        "size":null
+        "prompted":"null",
+        "size":"null"
     },
     "VeriGen-Codegen-16B":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10137086",
@@ -52,7 +52,7 @@
             "RTLLM_V1.1_Syntax":"86.2",
             "RTLLM_V1.1_Func":"24.1"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":16.0
     },
     "VerilogEval-codegen-16B-verilog-sft":{
@@ -61,12 +61,12 @@
         "pass@1":{
             "verilogeval_machine":"46.2",
             "verilogeval_human":"28.8",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":16.0
     },
     "VerilogEval-codegen-16B-multi-sft":{
@@ -75,12 +75,12 @@
         "pass@1":{
             "verilogeval_machine":"37.1",
             "verilogeval_human":"17.1",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":16.0
     },
     "VerilogEval-codegen-6B-verilog-sft":{
@@ -89,12 +89,12 @@
         "pass@1":{
             "verilogeval_machine":"40.0",
             "verilogeval_human":"26.6",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":6.0
     },
     "VerilogEval-codegen-6B-multi-sft":{
@@ -103,12 +103,12 @@
         "pass@1":{
             "verilogeval_machine":"31.5",
             "verilogeval_human":"14.9",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":6.0
     },
     "VerilogEval-codegen-2B-verilog-sft":{
@@ -117,12 +117,12 @@
         "pass@1":{
             "verilogeval_machine":"35.9",
             "verilogeval_human":"23.1",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":2.0
     },
     "VerilogEval-codegen-2B-multi-sft":{
@@ -131,12 +131,12 @@
         "pass@1":{
             "verilogeval_machine":"29.2",
             "verilogeval_human":"14.2",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":2.0
     },
     "VerilogEval-codegen-350M-multi-sft":{
@@ -145,12 +145,12 @@
         "pass@1":{
             "verilogeval_machine":"9.1",
             "verilogeval_human":"4.3",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":0.35
     },
     "RTLCoder-Mistral-4bit":{
@@ -164,7 +164,7 @@
             "RTLLM_V1.1_Syntax":"86.2",
             "RTLLM_V1.1_Func":"41.4"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":0.35
     },
     "RTLCoder-DeepSeek-4bit":{
@@ -178,7 +178,7 @@
             "RTLLM_V1.1_Syntax":"93.1",
             "RTLLM_V1.1_Func":"37.9"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":6.7
     },
     "RTLCoder-Mistral":{
@@ -192,7 +192,7 @@
             "RTLLM_V1.1_Syntax":"96.6",
             "RTLLM_V1.1_Func":"48.3"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "RTLCoder-DeepSeek":{
@@ -206,7 +206,7 @@
             "RTLLM_V1.1_Syntax":"93.1",
             "RTLLM_V1.1_Func":"48.3"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":6.7
     },
     "RTLCoder-Mistral-10k":{
@@ -220,7 +220,7 @@
             "RTLLM_V1.1_Syntax":"86.2",
             "RTLLM_V1.1_Func":"34.5"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "RTLCoder-DeepSeek-10k":{
@@ -234,7 +234,7 @@
             "RTLLM_V1.1_Syntax":"79.3",
             "RTLLM_V1.1_Func":"37.9"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":6.7
     },
     "RTLCoder-Mistral-Direct":{
@@ -248,7 +248,7 @@
             "RTLLM_V1.1_Syntax":"89.7",
             "RTLLM_V1.1_Func":"41.4"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "RTLCoder-DeepSeek-Direct":{
@@ -262,35 +262,35 @@
             "RTLLM_V1.1_Syntax":"86.2",
             "RTLLM_V1.1_Func":"44.8"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":6.7
     },
     "Llama2-13B-FT":{
         "link":"https://arxiv.org/abs/2403.11202",
         "open-data":"NONE",
         "pass@1":{
-            "verilogeval_machine":null,
-            "verilogeval_human":null,
+            "verilogeval_machine":"",
+            "verilogeval_human":"",
             "RTLLM_V1.0_Syntax":"100",
             "RTLLM_V1.0_Func":"72.4",
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":13.0
     },
     "Llama2-7B-FT":{
         "link":"https://arxiv.org/abs/2403.11202",
         "open-data":"NONE",
         "pass@1":{
-            "verilogeval_machine":null,
-            "verilogeval_human":null,
+            "verilogeval_machine":"",
+            "verilogeval_human":"",
             "RTLLM_V1.0_Syntax":"89.6",
             "RTLLM_V1.0_Func":"51.7",
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "ChipNeMo-7B":{
@@ -299,12 +299,12 @@
         "pass@1":{
             "verilogeval_machine":"28.7",
             "verilogeval_human":"8.3",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "ChipNeMo-13B":{
@@ -313,12 +313,12 @@
         "pass@1":{
             "verilogeval_machine":"43.4",
             "verilogeval_human":"22.4",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":13.0
     },
     "ChipNeMo-70B":{
@@ -327,12 +327,12 @@
         "pass@1":{
             "verilogeval_machine":"53.8",
             "verilogeval_human":"27.6",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":70.0
     },
     "CodeGen-2B fine-grained labels":{
@@ -341,12 +341,12 @@
         "pass@1":{
             "verilogeval_machine":"27",
             "verilogeval_human":"21.1",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":2.0
     },
     "CodeGen-6B fine-grained labels":{
@@ -355,12 +355,12 @@
         "pass@1":{
             "verilogeval_machine":"42.6",
             "verilogeval_human":"26.9",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":6.0
     },
     "CodeGen-16B fine-grained labels":{
@@ -369,12 +369,12 @@
         "pass@1":{
             "verilogeval_machine":"47.5",
             "verilogeval_human":"32.7",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":16.0
     },
     "CodeGen-2B MEV-LLM":{
@@ -383,12 +383,12 @@
         "pass@1":{
             "verilogeval_machine":"44",
             "verilogeval_human":"34.6",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":2.0
     },
     "CodeGen-6B MEV-LLM":{
@@ -397,12 +397,12 @@
         "pass@1":{
             "verilogeval_machine":"57.3",
             "verilogeval_human":"42.9",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":6.0
     },
     "CodeGen-16B MEV-LLM":{
@@ -411,12 +411,12 @@
         "pass@1":{
             "verilogeval_machine":"60.8",
             "verilogeval_human":"47.4",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":16.0
     },
     "GEMMA-2B fine-grained labels":{
@@ -425,12 +425,12 @@
         "pass@1":{
             "verilogeval_machine":"15.3",
             "verilogeval_human":"13.4",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":2.0
     },
     "GEMMA-7B fine-grained labels":{
@@ -439,12 +439,12 @@
         "pass@1":{
             "verilogeval_machine":"22.3",
             "verilogeval_human":"19.8",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "GEMMA-2B MEV-LLM":{
@@ -453,12 +453,12 @@
         "pass@1":{
             "verilogeval_machine":"31.4",
             "verilogeval_human":"27.5",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":2.0
     },
     "GEMMA-7B MEV-LLM":{
@@ -467,12 +467,12 @@
         "pass@1":{
             "verilogeval_machine":"41.9",
             "verilogeval_human":"37.8",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "BetterV-CodeLlama":{
@@ -481,12 +481,12 @@
         "pass@1":{
             "verilogeval_machine":"64.2",
             "verilogeval_human":"40.9",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "BetterV-DeepSeek":{
@@ -495,12 +495,12 @@
         "pass@1":{
             "verilogeval_machine":"67.8",
             "verilogeval_human":"45.9",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":6.7
     },
     "BetterV-CodeQwen":{
@@ -509,40 +509,40 @@
         "pass@1":{
             "verilogeval_machine":"68.1",
             "verilogeval_human":"46.1",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "BetterV-CodeLlama-base":{
         "link":"https://arxiv.org/abs/2402.03375",
         "open-data":"NONE",
         "pass@1":{
-            "verilogeval_machine":null,
+            "verilogeval_machine":"",
             "verilogeval_human":"40.0",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "CodeLlama-Dis":{
         "link":"https://arxiv.org/abs/2402.03375",
         "open-data":"NONE",
         "pass@1":{
-            "verilogeval_machine":null,
+            "verilogeval_machine":"",
             "verilogeval_human":"20.3",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "ITERTL-DeepSeek-10k":{
@@ -551,12 +551,12 @@
         "pass@1":{
             "verilogeval_machine":"62.2",
             "verilogeval_human":"42.9",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":6.7
     },
     "Proposed Model":{
@@ -564,13 +564,13 @@
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":"40.59",
-            "verilogeval_human":null,
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
-            "RTLLM_V1.1_Syntax":null,
-            "RTLLM_V1.1_Func":null
+            "verilogeval_human":"",
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
+            "RTLLM_V1.1_Syntax":"",
+            "RTLLM_V1.1_Func":""
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "CodeV-CodeLlama":{
@@ -579,12 +579,12 @@
         "pass@1":{
             "verilogeval_machine":"78.1",
             "verilogeval_human":"45.2",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
             "RTLLM_V1.1_Syntax":"93.1",
             "RTLLM_V1.1_Func":"62.1"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     },
     "CodeV-DeepSeek":{
@@ -593,12 +593,12 @@
         "pass@1":{
             "verilogeval_machine":"77.9",
             "verilogeval_human":"52.7",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
             "RTLLM_V1.1_Syntax":"89.7",
             "RTLLM_V1.1_Func":"55.2"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":6.7
     },
     "CodeV-CodeQwen":{
@@ -607,12 +607,12 @@
         "pass@1":{
             "verilogeval_machine":"77.6",
             "verilogeval_human":"53.2",
-            "RTLLM_V1.0_Syntax":null,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Syntax":"",
+            "RTLLM_V1.0_Func":"",
             "RTLLM_V1.1_Syntax":"93.1",
             "RTLLM_V1.1_Func":"55.2"
         },
-        "prompted":null,
+        "prompted":"null",
         "size":7.0
     }
 }

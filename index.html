@@ -122,14 +122,14 @@
           type="radio"
           class="btn-check"
           name="btnradio"
-          id="HumanEval"
+          id="verilogeval_human"
           checked
         />
-        <label class="btn btn-outline-primary" for="HumanEval">HumanEval</label>
+        <label class="btn btn-outline-primary" for="verilogeval_human">verilogeval_human</label>
         <input type="radio" class="btn-check" name="btnradio" id="MBPP" />
-        <label class="btn btn-outline-primary" for="MBPP">MBPP</label>
+        <label class="btn btn-outline-primary" for="MBPP">verilogeval_machine</label>
         <input type="radio" class="btn-check" name="btnradio" id="Average" />
-        <label class="btn btn-outline-primary" for="Average">Average</label>
+        <label class="btn btn-outline-primary" for="Average">RTLLM_V1</label>
       </div>
       <div id="chart" style="width: 100%; height: 600px"></div>
       <div class="container-fluid d-flex flex-row flex-nowrap">
@@ -306,16 +306,6 @@
     */
       if (xhr.status === 200) {
         data = JSON.parse(xhr.responseText);
-        Object.keys(data).forEach((key) => {
-          data[key]["pass@1"]["average"] = calcAverage(
-            data[key]["pass@1"]["humaneval"],
-            data[key]["pass@1"]["mbpp"],
-          );
-          data[key]["pass@1"]["average+"] = calcAverage(
-            data[key]["pass@1"]["humaneval+"],
-            data[key]["pass@1"]["mbpp+"],
-          );
-        });
         data = Object.keys(data).map((key) => {
           return {
             Model: key,
@@ -625,10 +615,14 @@
       };
 
       const avergeRadio = document.getElementById("Average");
-      const humanEvalRadio = document.getElementById("HumanEval");
-      const mbppRadio = document.getElementById("MBPP");
+      const verilogeval_humanRadio = document.getElementById("verilogeval_human");
+      const verilogeval_machineRadio = document.getElementById("verilogeval_machine");
+      const rtllm1syntaxRadio = document.getElementById("RTLLM_V1.0_Syntax")
+      const rtllm1funcRadio = document.getElementById("RTLLM_V1.0_Func")
+      const rtllm11syntaxRadio = document.getElementById("RTLLM_V1.1_Syntax")
+      const rtllm11funcRadio = document.getElementById("RTLLM_V1.1_Func")
 
-      humanEvalRadio.addEventListener("click", function () {
+      verilogeval_humanRadio.addEventListener("click", function () {
         clearTable();
         displayTable(originTable, "humaneval");
         displayTable(plusedTable, "humaneval+");

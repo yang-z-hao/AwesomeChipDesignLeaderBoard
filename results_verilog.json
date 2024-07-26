@@ -11,7 +11,7 @@
             "RTLLM_V1.1_Func":"37.9"
         },
         "prompted":"null",
-        "size":""
+        "size":"null"
     },
     "GPT-4":{
         "link":"",
@@ -25,7 +25,7 @@
             "RTLLM_V1.1_Func":"65.5"
         },
         "prompted":"null",
-        "size":""
+        "size":"null"
     },
     "StarCoder":{
         "link":"",
@@ -39,7 +39,7 @@
             "RTLLM_V1.1_Func":"27.6"
         },
         "prompted":"null",
-        "size":""
+        "size":"null"
     },
     "VeriGen-Codegen-16B":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10137086",
@@ -151,7 +151,7 @@
             "RTLLM_V1.1_Func":""
         },
         "prompted":"null",
-        "size":"350m"
+        "size":0.35
     },
     "RTLCoder-Mistral-4bit":{
         "link":"https://arxiv.org/abs/2312.08617",
@@ -165,7 +165,7 @@
             "RTLLM_V1.1_Func":"41.4"
         },
         "prompted":"null",
-        "size":"350m"
+        "size":0.35
     },
     "RTLCoder-DeepSeek-4bit":{
         "link":"https://arxiv.org/abs/2312.08617",

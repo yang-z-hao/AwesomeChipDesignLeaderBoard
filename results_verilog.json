@@ -6,7 +6,7 @@
             "verilogeval_machine":46.7,
             "verilogeval_human":26.7,
             "RTLLM_V1.0_Syntax":63.0,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":33.0,
             "RTLLM_V1.1_Syntax":89.7,
             "RTLLM_V1.1_Func":37.9
         },
@@ -20,7 +20,7 @@
             "verilogeval_machine":47.9,
             "verilogeval_human":27.0,
             "RTLLM_V1.0_Syntax":87,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":50,
             "RTLLM_V1.1_Syntax":100.0,
             "RTLLM_V1.1_Func":65.5
         },
@@ -34,7 +34,7 @@
             "verilogeval_machine":46.8,
             "verilogeval_human":18.1,
             "RTLLM_V1.0_Syntax":30.0,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":16.7,
             "RTLLM_V1.1_Syntax":93.1,
             "RTLLM_V1.1_Func":27.6
         },
@@ -48,7 +48,7 @@
             "verilogeval_machine":44.0,
             "verilogeval_human":30.3,
             "RTLLM_V1.0_Syntax":40,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":16.7,
             "RTLLM_V1.1_Syntax":86.2,
             "RTLLM_V1.1_Func":24.1
         },
@@ -160,7 +160,7 @@
             "verilogeval_machine":59.5,
             "verilogeval_human":33.8,
             "RTLLM_V1.0_Syntax":90,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":33.3,
             "RTLLM_V1.1_Syntax":86.2,
             "RTLLM_V1.1_Func":41.4
         },
@@ -174,7 +174,7 @@
             "verilogeval_machine":56.5,
             "verilogeval_human":37.5,
             "RTLLM_V1.0_Syntax":86.7,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":26.7,
             "RTLLM_V1.1_Syntax":93.1,
             "RTLLM_V1.1_Func":37.9
         },
@@ -188,7 +188,7 @@
             "verilogeval_machine":62.5,
             "verilogeval_human":36.7,
             "RTLLM_V1.0_Syntax":90.0,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":40.0,
             "RTLLM_V1.1_Syntax":96.6,
             "RTLLM_V1.1_Func":48.3
         },
@@ -202,7 +202,7 @@
             "verilogeval_machine":61.2,
             "verilogeval_human":41.6,
             "RTLLM_V1.0_Syntax":86.7,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":40.0,
             "RTLLM_V1.1_Syntax":93.1,
             "RTLLM_V1.1_Func":48.3
         },
@@ -216,7 +216,7 @@
             "verilogeval_machine":56.5,
             "verilogeval_human":31.7,
             "RTLLM_V1.0_Syntax":83.3,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":36.7,
             "RTLLM_V1.1_Syntax":86.2,
             "RTLLM_V1.1_Func":34.5
         },
@@ -230,7 +230,7 @@
             "verilogeval_machine":55.3,
             "verilogeval_human":36.7,
             "RTLLM_V1.0_Syntax":80.0,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":30.0,
             "RTLLM_V1.1_Syntax":79.3,
             "RTLLM_V1.1_Func":37.9
         },
@@ -244,7 +244,7 @@
             "verilogeval_machine":58.9,
             "verilogeval_human":34.4,
             "RTLLM_V1.0_Syntax":86.7,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":33.3,
             "RTLLM_V1.1_Syntax":89.7,
             "RTLLM_V1.1_Func":41.4
         },
@@ -258,7 +258,7 @@
             "verilogeval_machine":59.8,
             "verilogeval_human":39.1,
             "RTLLM_V1.0_Syntax":86.7,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":36.7,
             "RTLLM_V1.1_Syntax":86.2,
             "RTLLM_V1.1_Func":44.8
         },
@@ -272,7 +272,7 @@
             "verilogeval_machine":null,
             "verilogeval_human":null,
             "RTLLM_V1.0_Syntax":100,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":72.4,
             "RTLLM_V1.1_Syntax":null,
             "RTLLM_V1.1_Func":null
         },
@@ -286,7 +286,7 @@
             "verilogeval_machine":null,
             "verilogeval_human":null,
             "RTLLM_V1.0_Syntax":89.6,
-            "RTLLM_V1.0_Func":null,
+            "RTLLM_V1.0_Func":51.7,
             "RTLLM_V1.1_Syntax":null,
             "RTLLM_V1.1_Func":null
         },

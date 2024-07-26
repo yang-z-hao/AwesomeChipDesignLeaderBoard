@@ -278,10 +278,10 @@
       const chartDom = document.getElementById("chart");
       var chart = echarts.init(chartDom);
 
-      const dataUrl = "results.json";
+      const dataUrl = "results_verilog.json";
 
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", "results.json", false); // false makes the request synchronous
+      xhr.open("GET", "results_verilog.json", false); // false makes the request synchronous
       xhr.send();
 
       const calcAverage = (a, b) => {

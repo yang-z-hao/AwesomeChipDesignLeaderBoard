@@ -1,7 +1,7 @@
 {
     "GPT-3.5":{
         "link":"",
-        "open-data":null,
+        "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":46.7,
             "verilogeval_human":26.7,
@@ -15,7 +15,7 @@
     },
     "GPT-4":{
         "link":"",
-        "open-data":null,
+        "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":47.9,
             "verilogeval_human":27.0,
@@ -29,7 +29,7 @@
     },
     "StarCoder":{
         "link":"",
-        "open-data":null,
+        "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":46.8,
             "verilogeval_human":18.1,

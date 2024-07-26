@@ -532,7 +532,7 @@
         const sizeList = [
           ...new Set(
             data
-              .filter((model) => model["size"] != null)
+              .filter((model) => model["size"] != "null")
               .map((model) => Math.round(model["size"])),
           ),
         ].sort((a, b) => {
@@ -552,7 +552,7 @@
 
         [nonPromptedModels, promptedModels].forEach((series, idx) => {
           series.forEach((model) => {
-            if (model["size"] == null) {
+            if (model["size"] == "null") {
               chartOption.series[idx].markLine.data.push({
                 name: model["Model"],
                 yAxis: model["pass@1"][score],

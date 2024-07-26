@@ -437,7 +437,7 @@
         // filter out Null
         data = globalData
           .filter((row) => {
-            return row["pass@1"][score] != null;
+            return row["pass@1"][score] != "null";
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
@@ -532,7 +532,7 @@
         const sizeList = [
           ...new Set(
             data
-              .filter((model) => model["size"] != null)
+              .filter((model) => model["size"] != "null")
               .map((model) => Math.round(model["size"])),
           ),
         ].sort((a, b) => {

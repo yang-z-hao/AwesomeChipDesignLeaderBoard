@@ -87,21 +87,13 @@
         }
       }
       #timeSlider {
-        width: 150%; /* 将宽度设置为原来的两倍 */
+        width: 200%; /* 将宽度设置为原来的两倍 */
       }
       .time-slider-container {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 10px; /* 调整元素之间的间距 */
-      }
-      .time-indicator {
-        position: relative;
-        width: 2px;
-        height: 20px;
-        background-color: red;
-        top: -10px;
-        left: 0;
       }
     </style>
   </head>
@@ -117,12 +109,6 @@
           >Comprehensive testing for large-scale Verilog models<br
         /></small>
       </h3>
-      <div class="time-slider-container">
-        <label for="timeSlider">TimeLine:</label>
-        <input type="range" id="timeSlider" min="0" max="0" value="0" step="1">
-        <span id="timeValue">0</span>
-        <div class="time-indicator" id="timeIndicator"></div>
-      </div>
       <div class="btn-group" role="group" id="Benchmark">
         <input
           type="radio"
@@ -144,6 +130,11 @@
         <label class="btn btn-outline-primary" for="RTLLM_V1_1_Func">RTLLM_V1_1_Func</label>
       </div>
       <div id="chart" style="width: 90%; height: 600px"></div>
+      <div class="time-slider-container">
+        <label for="timeSlider">TimeLine:</label>
+        <input type="range" id="timeSlider" min="0" max="0" value="0" step="1">
+        <span id="timeValue">0</span>
+      </div>
       <div class="container-fluid d-flex flex-row flex-nowrap">
         <div class="container-fluid d-flex flex-column align-items-center">
           <label for="plused" class="text-success mb-3" id="label1"
@@ -618,7 +609,6 @@
 
       const timeSlider = document.getElementById("timeSlider");
       const timeValue = document.getElementById("timeValue");
-      const timeIndicator = document.getElementById("timeIndicator");
 
       const timeValues = [...new Set(globalData.map(item => item.time))]
                           .filter(time => time !== 0)
@@ -633,15 +623,13 @@
       timeValue.textContent = timeSlider.value;
 
       timeSlider.addEventListener("input", function () {
-        timeValue.textContent = timeSlider.value;
+        // // 四舍五入到最近的 timeValues 数组中的值
+        // const closestTime = timeValues.reduce((prev, curr) => {
+        //   return (Math.abs(curr - timeSlider.value) < Math.abs(prev - timeSlider.value) ? curr : prev);
+        // });
 
-        // 更新竖线的位置
-        const sliderWidth = timeSlider.offsetWidth;
-        const minValue = parseInt(timeSlider.min);
-        const maxValue = parseInt(timeSlider.max);
-        const value = parseInt(timeSlider.value);
-        const position = ((value - minValue) / (maxValue - minValue)) * sliderWidth;
-        timeIndicator.style.left = `${position}px`;
+        // timeSlider.value = closestTime;
+        timeValue.textContent = timeSlider.value;
 
         const selectedScore = document.querySelector('input[name="btnradio"]:checked').id;
         clearTable();

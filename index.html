@@ -89,6 +89,12 @@
       #timeSlider {
         width: 100%; /* 将宽度设置为原来的两倍 */
       }
+      .time-slider-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px; /* 调整元素之间的间距 */
+      }
     </style>
   </head>
 
@@ -103,7 +109,7 @@
           >Comprehensive testing for large-scale Verilog models<br
         /></small>
       </h3>
-      <div class="mt-3">
+      <div class="time-slider-container">
         <label for="timeSlider">Time Line:</label>
         <input type="range" id="timeSlider" min="0" max="0" value="0" step="1">
         <span id="timeValue">0</span>

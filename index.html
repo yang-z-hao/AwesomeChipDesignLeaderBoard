@@ -378,7 +378,7 @@
 
         data = globalData
           .filter((row) => {
-            return row["pass@1"][score] != null && row["time"] <= timeSlider.value;
+            return row["pass@1"][score] != null && row["time"] == timeSlider.value;
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
@@ -460,7 +460,7 @@
       const displayChart = (score) => {
         const data = globalData
           .filter((model) => {
-            return model["pass@1"][score] != null && model["time"] <= timeSlider.value;
+            return model["pass@1"][score] != null && model["time"] == timeSlider.value;
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
@@ -607,8 +607,8 @@
       const timeSlider = document.getElementById("timeSlider");
       const timeValue = document.getElementById("timeValue");
 
-      const timeValues = [...new Set(globalData.map(item => item.time))]
-                          .filter(time => time !== 0)
+      const timeValues = [...new Set(globalData.map(item => item.size))]
+                          .filter(size => size !== 0)
                           .sort((a, b) => a - b);
       // 计算 timeValues 数组中相邻元素的差值的最小值
       const minStep = Math.min(...timeValues.slice(1).map((value, index) => value - timeValues[index]));

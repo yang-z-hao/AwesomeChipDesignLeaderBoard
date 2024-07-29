@@ -607,7 +607,9 @@
       const timeSlider = document.getElementById("timeSlider");
       const timeValue = document.getElementById("timeValue");
 
-      const timeValues = [...new Set(globalData.map(item => item.time))].sort((a, b) => a - b);
+      const timeValues = [...new Set(globalData.map(item => item.time))]
+                          .filter(time => time !== 0)
+                          .sort((a, b) => a - b);
       timeSlider.min = Math.min(...timeValues);
       timeSlider.max = Math.max(...timeValues);
       timeSlider.value = timeSlider.max;

@@ -38,7 +38,7 @@
             "RTLLM_V1_1_Syntax":93.1,
             "RTLLM_V1_1_Func":27.6
         },
-        "prompted":true,
+        "prompted":false,
         "size":null
     },
     "VeriGen-Codegen-16B":{

@@ -166,7 +166,7 @@
     },
     "RTLCoder-Mistral-4bit":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"Partial",
+        "open-data":"Full",
         "pass@1":{
             "verilogeval_machine":59.5,
             "verilogeval_human":33.8,
@@ -181,7 +181,7 @@
     },
     "RTLCoder-DeepSeek-4bit":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"Partial",
+        "open-data":"Full",
         "pass@1":{
             "verilogeval_machine":56.5,
             "verilogeval_human":37.5,
@@ -196,7 +196,7 @@
     },
     "RTLCoder-Mistral":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"Partial",
+        "open-data":"Full",
         "pass@1":{
             "verilogeval_machine":62.5,
             "verilogeval_human":36.7,
@@ -211,7 +211,7 @@
     },
     "RTLCoder-DeepSeek":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"Partial",
+        "open-data":"Full",
         "pass@1":{
             "verilogeval_machine":61.2,
             "verilogeval_human":41.6,
@@ -226,7 +226,7 @@
     },
     "RTLCoder-Mistral-10k":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"Partial",
+        "open-data":"Full",
         "pass@1":{
             "verilogeval_machine":56.5,
             "verilogeval_human":31.7,
@@ -241,7 +241,7 @@
     },
     "RTLCoder-DeepSeek-10k":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"Partial",
+        "open-data":"Full",
         "pass@1":{
             "verilogeval_machine":55.3,
             "verilogeval_human":36.7,
@@ -256,7 +256,7 @@
     },
     "RTLCoder-Mistral-Direct":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"Partial",
+        "open-data":"Full",
         "pass@1":{
             "verilogeval_machine":58.9,
             "verilogeval_human":34.4,
@@ -271,7 +271,7 @@
     },
     "RTLCoder-DeepSeek-Direct":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"Partial",
+        "open-data":"Full",
         "pass@1":{
             "verilogeval_machine":59.8,
             "verilogeval_human":39.1,

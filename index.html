@@ -259,7 +259,7 @@
       const label1Element = document.getElementById("label1")
       const label2Element = document.getElementById("label2")
 
-      const displayTable = (table, score, time) => {
+      const displayTable = (table, score, startTime, endTime) => {
         if (score.includes("verilogeval")) {
           label1Element.textContent = "⚡Verilog-Eval Machine Tests⚡"
           label2Element.textContent = "⚡Verilog-Eval Human Tests⚡"
@@ -280,7 +280,7 @@
 
         const data = globalData
           .filter((row) => {
-            return row["pass@1"][score] != null && (!row['time'] || new Date(row['time']) <= new Date(time));
+            return row["pass@1"][score] != null && (!row['time'] || (new Date(row['time']) >= new Date(startTime) && new Date(row['time']) <= new Date(endTime)));
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
@@ -361,10 +361,10 @@
         table.appendChild(tbody);
       };
 
-      const displayChart = (score, time) => {
+      const displayChart = (score, startTime, endTime) => {
         const data = globalData
           .filter((model) => {
-            return model["pass@1"][score] != null && (!model['time'] || new Date(model['time']) <= new Date(time));
+            return model["pass@1"][score] != null && (!model['time'] || (new Date(model['time']) >= new Date(startTime) && new Date(model['time']) <= new Date(endTime)));
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
@@ -582,50 +582,50 @@
 
         verilogeval_humanRadio.addEventListener("click", () => {
           clearTable();
-          displayTable(originTable, "verilogeval_human", new Date());
-          displayTable(plusedTable, "verilogeval_machine", new Date());
+          displayTable(originTable, "verilogeval_human", new Date(), new Date());
+          displayTable(plusedTable, "verilogeval_machine", new Date(), new Date());
           clearChart();
-          displayChart("verilogeval_human", new Date());
+          displayChart("verilogeval_human", new Date(), new Date());
         });
 
         verilogeval_machineRadio.addEventListener("click", () => {
           clearTable();
-          displayTable(originTable, "verilogeval_human", new Date());
-          displayTable(plusedTable, "verilogeval_machine", new Date());
+          displayTable(originTable, "verilogeval_human", new Date(), new Date());
+          displayTable(plusedTable, "verilogeval_machine", new Date(), new Date());
           clearChart();
-          displayChart("verilogeval_machine", new Date());
+          displayChart("verilogeval_machine", new Date(), new Date());
         });
 
         rtllm1syntaxRadio.addEventListener("click", () => {
           clearTable();
-          displayTable(originTable, "RTLLM_V1_0_Func", new Date());
-          displayTable(plusedTable, "RTLLM_V1_0_Syntax", new Date());
+          displayTable(originTable, "RTLLM_V1_0_Func", new Date(), new Date());
+          displayTable(plusedTable, "RTLLM_V1_0_Syntax", new Date(), new Date());
           clearChart();
-          displayChart("RTLLM_V1_0_Syntax", new Date());
+          displayChart("RTLLM_V1_0_Syntax", new Date(), new Date());
         });
 
         rtllm1funcRadio.addEventListener("click", () => {
           clearTable();
-          displayTable(originTable, "RTLLM_V1_0_Func", new Date());
-          displayTable(plusedTable, "RTLLM_V1_0_Syntax", new Date());
+          displayTable(originTable, "RTLLM_V1_0_Func", new Date(), new Date());
+          displayTable(plusedTable, "RTLLM_V1_0_Syntax", new Date(), new Date());
           clearChart();
-          displayChart("RTLLM_V1_0_Func", new Date());
+          displayChart("RTLLM_V1_0_Func", new Date(), new Date());
         });
 
         rtllm11syntaxRadio.addEventListener("click", () => {
           clearTable();
-          displayTable(originTable, "RTLLM_V1_1_Func", new Date());
-          displayTable(plusedTable, "RTLLM_V1_1_Syntax", new Date());
+          displayTable(originTable, "RTLLM_V1_1_Func", new Date(), new Date());
+          displayTable(plusedTable, "RTLLM_V1_1_Syntax", new Date(), new Date());
           clearChart();
-          displayChart("RTLLM_V1_1_Syntax", new Date());
+          displayChart("RTLLM_V1_1_Syntax", new Date(), new Date());
         });
 
         rtllm11funcRadio.addEventListener("click", () => {
           clearTable();
-          displayTable(originTable, "RTLLM_V1_1_Func", new Date());
-          displayTable(plusedTable, "RTLLM_V1_1_Syntax", new Date());
+          displayTable(originTable, "RTLLM_V1_1_Func", new Date(), new Date());
+          displayTable(plusedTable, "RTLLM_V1_1_Syntax", new Date(), new Date());
           clearChart();
-          displayChart("RTLLM_V1_1_Func", new Date());
+          displayChart("RTLLM_V1_1_Func", new Date(), new Date());
         });
       };
 

@@ -631,7 +631,7 @@
       chart.on('dataZoom', function (params) {
         const start = params.batch[0].start;
         const end = params.batch[0].end;
-        const timeRange = globalData.filter(model => model.time).map(model => new Date(model.time));
+        const timeRange = globalData.filter(model => model['time']).map(model => new Date(model['time']));
         timeRange.sort((a, b) => a - b);
         const startTime = timeRange[Math.floor(start / 100 * timeRange.length)];
         const endTime = timeRange[Math.floor(end / 100 * timeRange.length)];

@@ -618,17 +618,17 @@
 
       timeSlider.min = Math.min(...timeValues);
       timeSlider.max = Math.max(...timeValues);
-      timeSlider.step = 1;
+      timeSlider.step = minStep;
       timeSlider.value = timeSlider.max;
       timeValue.textContent = timeSlider.value;
 
       timeSlider.addEventListener("input", function () {
-        // // 四舍五入到最近的 timeValues 数组中的值
-        // const closestTime = timeValues.reduce((prev, curr) => {
-        //   return (Math.abs(curr - timeSlider.value) < Math.abs(prev - timeSlider.value) ? curr : prev);
-        // });
+        // 四舍五入到最近的 timeValues 数组中的值
+        const closestTime = timeValues.reduce((prev, curr) => {
+          return (Math.abs(curr - timeSlider.value) < Math.abs(prev - timeSlider.value) ? curr : prev);
+        });
 
-        // timeSlider.value = closestTime;
+        timeSlider.value = closestTime;
         timeValue.textContent = timeSlider.value;
 
         const selectedScore = document.querySelector('input[name="btnradio"]:checked').id;

@@ -395,7 +395,7 @@
 
         const data = globalData
           .filter((row) => {
-            return row["pass@1"][score] != null && (!row['time'] || (new Date(row['time']) >= new Date(startTime) && new Date(row['time']) <= new Date(endTime)));
+            return row["pass@1"][score] != null && (!row['time'] || (row['time'] >= startTime && row['time'] <= endTime));
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
@@ -479,7 +479,7 @@
       const displayChart = (score, startTime, endTime) => {
         const data = globalData
           .filter((model) => {
-            return model["pass@1"][score] != null && (!model['time'] || (new Date(model['time']) >= new Date(startTime) && new Date(model['time']) <= new Date(endTime)));
+            return model["pass@1"][score] != null && (!model['time'] || (model['time'] >= startTime && model['time'] <= endTime));
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
@@ -569,8 +569,8 @@
       const rtllm11funcRadio = document.getElementById("RTLLM_V1_1_Func")
 
       let currentScore = "verilogeval_human";
-      let currentStartTime = new Date(0);
-      let currentEndTime = new Date();
+      let currentStartTime = Math.min(...globalData.filter(model => model['time']).map(model => model['time']));
+      let currentEndTime = Math.max(...globalData.filter(model => model['time']).map(model => model['time']));
 
       verilogeval_humanRadio.addEventListener("click", function () {
         currentScore = "verilogeval_human";
@@ -631,7 +631,7 @@
       chart.on('dataZoom', function (params) {
         const start = params.batch[0].start;
         const end = params.batch[0].end;
-        const timeRange = globalData.filter(model => model['time']).map(model => new Date(model['time']));
+        const timeRange = globalData.filter(model => model['time']).map(model => model['time']);
         timeRange.sort((a, b) => a - b);
         const startTime = timeRange[Math.floor(start / 100 * timeRange.length)];
         const endTime = timeRange[Math.floor(end / 100 * timeRange.length)];

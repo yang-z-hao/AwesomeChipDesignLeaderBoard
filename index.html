@@ -463,7 +463,7 @@
             return model["pass@1"][score] != null && model["time"] <= timeSlider.value;
           })
           .sort((a, b) => {
-            return b["pass@1"][score] - a["pass@1"][score];
+            return new Date(b["pass@1"][score]) - new Date(a["pass@1"][score]);
           });
 
         const timeList = [
@@ -609,7 +609,7 @@
 
       const timeValues = [...new Set(globalData.map(item => item.time))]
                           .filter(time => time !== 0)
-                          .sort((a, b) => a - b);
+                          .sort((a, b) => new Date(a) - new Date(b));
       // 计算 timeValues 数组中相邻元素的差值的最小值
       const minStep = Math.min(...timeValues.slice(1).map((value, index) => value - timeValues[index]));
 

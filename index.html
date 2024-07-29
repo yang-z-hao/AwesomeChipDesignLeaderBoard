@@ -489,7 +489,7 @@
 
         [nonPromptedModels, promptedModels].forEach((series, idx) => {
           series.forEach((model) => {
-            if (model["time"] == null) {
+            if (model["time"] == 0) {
               chartOption.series[idx].markLine.data.push({
                 name: model["Model"],
                 yAxis: model["pass@1"][score],

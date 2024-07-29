@@ -469,7 +469,8 @@
         const timeList = [
           ...new Set(
             data
-              .filter((model) => model["time"] != null),
+              .filter((model) => model["time"] != null)
+              .map((model) => Math.round(model["time"])),
           ),
         ].sort((a, b) => {
           return a - b;

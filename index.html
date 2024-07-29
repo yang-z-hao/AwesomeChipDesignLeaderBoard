@@ -473,7 +473,7 @@
               .map((model) => Math.round(model["time"])),
           ),
         ].sort((a, b) => {
-          return a - b;
+          return new Date(a) - new Date(b);
         });
 
         chartOption.xAxis.data = timeList;

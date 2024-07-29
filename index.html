@@ -109,11 +109,6 @@
           >Comprehensive testing for large-scale Verilog models<br
         /></small>
       </h3>
-      <div class="time-slider-container">
-        <label for="timeSlider">TimeLine:</label>
-        <input type="range" id="timeSlider" min="0" max="0" value="0" step="1">
-        <span id="timeValue">0</span>
-      </div>
       <div class="btn-group" role="group" id="Benchmark">
         <input
           type="radio"
@@ -135,6 +130,11 @@
         <label class="btn btn-outline-primary" for="RTLLM_V1_1_Func">RTLLM_V1_1_Func</label>
       </div>
       <div id="chart" style="width: 90%; height: 600px"></div>
+      <div class="time-slider-container">
+        <label for="timeSlider">TimeLine:</label>
+        <input type="range" id="timeSlider" min="0" max="0" value="0" step="1">
+        <span id="timeValue">0</span>
+      </div>
       <div class="container-fluid d-flex flex-row flex-nowrap">
         <div class="container-fluid d-flex flex-column align-items-center">
           <label for="plused" class="text-success mb-3" id="label1"

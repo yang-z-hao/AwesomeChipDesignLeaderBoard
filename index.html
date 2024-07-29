@@ -629,6 +629,10 @@
       verilogeval_humanRadio.click();
 
       chart.on('dataZoom', function (params) {
+        if (!params.batch || params.batch.length === 0) {
+          console.error('Invalid dataZoom event parameters:', params);
+          return;
+        }
         const start = params.batch[0].start;
         const end = params.batch[0].end;
         const timeRange = globalData.filter(model => model['time']).map(model => model['time']);

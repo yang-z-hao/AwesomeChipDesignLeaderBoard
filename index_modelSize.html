@@ -1,13 +1,95 @@
 <!doctype html>
 <html>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;400&display=swap"
+    rel="stylesheet"
+  />
+
   <head>
-    <!-- 其他head内容... -->
+    <meta charset="UTF-8" />
+    <title>Verilog LLM Leaderboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+    <link
+      rel="icon"
+      href="https://images.emojiterra.com/google/noto-emoji/unicode-15/color/1024px/1f9d1-1f4bb.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+    />
+
     <style>
-      /* 其他样式... */
-      #sizeSlider {
+      body {
+        font-family: "JetBrains Mono", monospace;
+        background-color: #ffffff;
+        color: #000000;
+      }
+
+      #content {
+        width: 75%;
+      }
+
+      th,
+      td {
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      #notes {
+        font-size: 1em;
+      }
+
+      #notes h3 {
+        margin-top: 1em;
+        font-size: 2em;
+        text-align: center;
+      }
+
+      #notes li {
+        font-size: 1.2em;
+        font-weight: 300;
+        margin: 1em;
+      }
+
+      .form-select {
+        font-size: 1em;
+      }
+
+      @media screen and (max-width: 1400px) {
+        body {
+          font-size: 1.6vw;
+        }
+
+        #content {
+          width: 100%;
+        }
+
+        h1 {
+          font-size: 2em;
+        }
+
+        h2 {
+          font-size: 1.6em;
+        }
+
+        h3 {
+          font-size: 1.2em;
+        }
+
+        table {
+          font-size: small;
+        }
+      }
+      #timeSlider {
         width: 200%; /* 将宽度设置为原来的两倍 */
       }
-      .size-slider-container {
+      .time-slider-container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -48,10 +130,10 @@
         <label class="btn btn-outline-primary" for="RTLLM_V1_1_Func">RTLLM_V1_1_Func</label>
       </div>
       <div id="chart" style="width: 90%; height: 600px"></div>
-      <div class="size-slider-container">
-        <label for="sizeSlider">Size:</label>
-        <input type="range" id="sizeSlider" min="0" max="0" value="0" step="1">
-        <span id="sizeValue">0</span>
+      <div class="time-slider-container">
+        <label for="timeSlider">TimeLine:</label>
+        <input type="range" id="timeSlider" min="0" max="0" value="0" step="1">
+        <span id="timeValue">0</span>
       </div>
       <div class="container-fluid d-flex flex-row flex-nowrap">
         <div class="container-fluid d-flex flex-column align-items-center">
@@ -178,13 +260,13 @@
           containLabel: true,
         },
         xAxis: {
-          name: "Time",
-          type: "value",
+          name: "Act. Size",
+          type: "category",
           boundaryGap: false,
           data: [],
           axisLabel: {
             formatter: function (value) {
-              return value + "s";
+              return value + "B";
             },
           },
         },
@@ -303,7 +385,7 @@
 
         data = globalData
           .filter((row) => {
-            return row["pass@1"][score] != null && row["size"] <= sizeSlider.value;
+            return row["pass@1"][score] != null && row["time"] <= timeSlider.value;
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
@@ -381,23 +463,23 @@
       const displayChart = (score) => {
         const data = globalData
           .filter((model) => {
-            return model["pass@1"][score] != null && model["size"] <= sizeSlider.value;
+            return model["pass@1"][score] != null && model["time"] <= timeSlider.value;
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
           });
 
-        const timeList = [
+        const sizeList = [
           ...new Set(
             data
-              .filter((model) => model["time"] != null)
-              .map((model) => model["time"]),
+              .filter((model) => model["size"] != null)
+              .map((model) => Math.round(model["size"])),
           ),
         ].sort((a, b) => {
           return a - b;
         });
 
-        chartOption.xAxis.data = timeList;
+        chartOption.xAxis.data = sizeList;
         chartOption.yAxis.max =
           1 + Math.max(...data.map((model) => model["pass@1"][score]));
 
@@ -408,4 +490,160 @@
           (model) => model["prompted"] == true,
         );
 
-        [nonPromptedModels, promptedModels].forEach((series, idx) =>
+        [nonPromptedModels, promptedModels].forEach((series, idx) => {
+          series.forEach((model) => {
+            if (model["size"] == null) {
+              chartOption.series[idx].markLine.data.push({
+                name: model["Model"],
+                yAxis: model["pass@1"][score],
+              });
+            } else {
+              chartOption.series[idx].data.push({
+                name: model["Model"],
+                value: [`${Math.round(model["size"])}`, model["pass@1"][score]],
+              });
+            }
+          });
+        });
+
+        const offsets = [[50, 0]]
+          .concat(Array.from({ length: sizeList.length - 2 }, () => [0, 0]))
+          .concat([[-50, 0]]);
+        sizeList.forEach((size, idx) => {
+          const bestNonPromptedModel = nonPromptedModels
+            .filter((model) => Math.round(model["size"]) == size)
+            .sort((a, b) => {
+              return b["pass@1"][score] - a["pass@1"][score];
+            })[0];
+          const bestPromptedModel = promptedModels
+            .filter((model) => Math.round(model["size"]) == size)
+            .sort((a, b) => {
+              return b["pass@1"][score] - a["pass@1"][score];
+            })[0];
+          const hightLightBest = (series, model) => {
+            const point = chartOption.series[series].data.find(
+              (point) => point.name == model["Model"],
+            );
+            if (point) {
+                point.itemStyle = {
+                opacity: 1.0,
+              };
+              point.label = {
+                show: true,
+                position: "top",
+                offset: offsets[idx],
+                formatter: function (params) {
+                  return params.data.name;
+                },
+                color: "inherit",
+              };
+            }
+          };
+            
+          if (bestNonPromptedModel) {
+            hightLightBest(0, bestNonPromptedModel);
+          }
+          if (bestPromptedModel) {
+            hightLightBest(1, bestPromptedModel);
+          }
+        });
+
+        var chart = echarts.init(chartDom);
+        chart.setOption(chartOption);
+      };
+
+      const verilogeval_humanRadio = document.getElementById("verilogeval_human");
+      const verilogeval_machineRadio = document.getElementById("verilogeval_machine");
+      const rtllm1syntaxRadio = document.getElementById("RTLLM_V1_0_Syntax")
+      const rtllm1funcRadio = document.getElementById("RTLLM_V1_0_Func")
+      const rtllm11syntaxRadio = document.getElementById("RTLLM_V1_1_Syntax")
+      const rtllm11funcRadio = document.getElementById("RTLLM_V1_1_Func")
+
+      verilogeval_humanRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "verilogeval_human");
+        displayTable(plusedTable, "verilogeval_machine");
+        clearChart();
+        displayChart("verilogeval_human");
+      });
+
+      verilogeval_machineRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "verilogeval_human");
+        displayTable(plusedTable, "verilogeval_machine");
+        clearChart();
+        displayChart("verilogeval_machine");
+      });
+
+      rtllm1syntaxRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "RTLLM_V1_0_Func");
+        displayTable(plusedTable, "RTLLM_V1_0_Syntax");
+        clearChart();
+        displayChart("RTLLM_V1_0_Syntax");
+      });
+
+      rtllm1funcRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "RTLLM_V1_0_Func");
+        displayTable(plusedTable, "RTLLM_V1_0_Syntax");
+        clearChart();
+        displayChart("RTLLM_V1_0_Func");
+      });
+
+      rtllm11syntaxRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "RTLLM_V1_1_Func");
+        displayTable(plusedTable, "RTLLM_V1_1_Syntax");
+        clearChart();
+        displayChart("RTLLM_V1_1_Syntax");
+      });
+
+      rtllm11funcRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "RTLLM_V1_1_Func");
+        displayTable(plusedTable, "RTLLM_V1_1_Syntax");
+        clearChart();
+        displayChart("RTLLM_V1_1_Func");
+      });
+
+      const timeSlider = document.getElementById("timeSlider");
+      const timeValue = document.getElementById("timeValue");
+
+      const timeValues = [...new Set(globalData.map(item => item.time))]
+                          .filter(time => time !== 0)
+                          .sort((a, b) => a - b);
+      // 计算 timeValues 数组中相邻元素的差值的最小值
+      const minStep = Math.min(...timeValues.slice(1).map((value, index) => value - timeValues[index]));
+
+      timeSlider.min = Math.min(...timeValues);
+      timeSlider.max = Math.max(...timeValues);
+      timeSlider.step = 1;
+      timeSlider.value = timeSlider.max;
+      timeValue.textContent = timeSlider.value;
+
+      timeSlider.addEventListener("input", function () {
+        // 四舍五入到最近的 timeValues 数组中的值
+        const closestTime = timeValues.reduce((prev, curr) => {
+          return (Math.abs(curr - timeSlider.value) < Math.abs(prev - timeSlider.value) ? curr : prev);
+        });
+
+        timeSlider.value = closestTime;
+        timeValue.textContent = timeSlider.value;
+
+        const selectedScore = document.querySelector('input[name="btnradio"]:checked').id;
+        clearTable();
+        clearChart();
+        displayTable(originTable, selectedScore);
+        displayTable(plusedTable, selectedScore);
+        displayChart(selectedScore);
+      });
+
+      verilogeval_humanRadio.click();
+
+      window.addEventListener("resize", () => {
+        this.chart.resize();
+      });
+    </script>
+  </body>
+</html>

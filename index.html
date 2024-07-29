@@ -420,12 +420,16 @@
             modelCell.textContent = "";
           }
           rank++;
-          var modelLink = document.createElement("a");
-          modelLink.href = row["link"];
-          modelLink.textContent = row["Model"];
-          modelLink.classList.add("link-underline-primary");
-          modelLink.classList.add("text-nowrap");
-          modelCell.appendChild(modelLink);
+          if (row["link"]) {
+            var modelLink = document.createElement("a");
+            modelLink.href = row["link"];
+            modelLink.textContent = row["Model"];
+            modelLink.classList.add("link-underline-primary");
+            modelLink.classList.add("text-nowrap");
+            modelCell.appendChild(modelLink);
+          } else {
+            modelCell.textContent += row["Model"];
+          }
           modelCell.classList.add("d-flex");
           modelCell.classList.add("flex-nowrap");
           var prompted = row["prompted"];

@@ -1,6 +1,6 @@
 {
     "GPT-3.5":{
-        "link":"",
+        "link":null,
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":46.7,
@@ -15,7 +15,7 @@
         "time":0
     },
     "GPT-4":{
-        "link":"",
+        "link":null,
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":60.0,
@@ -30,7 +30,7 @@
         "time":0
     },
     "StarCoder":{
-        "link":"",
+        "link":null,
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":46.8,
@@ -660,7 +660,7 @@
         "time":20240714
     },
     " CodeLlama-7b-Instruct":{
-        "link":"",
+        "link":null,
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":43.1,
@@ -675,7 +675,7 @@
         "time":0
     },
     "Deepseek-Coder-6.7b-Instruct":{
-        "link":"",
+        "link":null,
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":52.2,
@@ -690,7 +690,7 @@
         "time":0
     },
     "CodeQwen1.5-7B-Chat":{
-        "link":"",
+        "link":null,
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":46.5,
@@ -705,7 +705,7 @@
         "time":0
     },
     "Codegen2":{
-        "link":"",
+        "link":null,
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":5.0,
@@ -720,7 +720,7 @@
         "time":0
     },
     "Mistral-7B-v0.1":{
-        "link":"",
+        "link":null,
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":36.9,

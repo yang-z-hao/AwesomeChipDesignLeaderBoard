@@ -17,8 +17,8 @@
         "link":"",
         "open-data":"NONE",
         "pass@1":{
-            "verilogeval_machine":47.9,
-            "verilogeval_human":27.0,
+            "verilogeval_machine":60.0,
+            "verilogeval_human":43.5,
             "RTLLM_V1_0_Syntax":87.0,
             "RTLLM_V1_0_Func":50.0,
             "RTLLM_V1_1_Syntax":100.0,

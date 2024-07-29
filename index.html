@@ -625,19 +625,19 @@
 
       verilogeval_machineRadio.addEventListener("click", function () {
         clearTable();
-        displayTable(originTable, "verilogeval_machine");
+        displayTable(originTable, "verilogeval_human");
         displayTable(plusedTable, "verilogeval_machine");
         clearChart();
         displayChart("verilogeval_machine");
       });
 
-      // rtllm11funcRadio.addEventListener("click", function () {
-      //   clearTable();
-      //   displayTable(originTable, "verilogeval_machine");
-      //   displayTable(plusedTable, "verilogeval_machine");
-      //   clearChart();
-      //   displayChart("verilogeval_machine");
-      // });
+      rtllm11funcRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "RTLLM_V1.1_Syntax");
+        displayTable(plusedTable, "RTLLM_V1.1_Func");
+        clearChart();
+        displayChart("RTLLM_V1.1_Func");
+      });
 
       verilogeval_humanRadio.click();
 

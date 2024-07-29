@@ -39,7 +39,7 @@
             "RTLLM_V1_1_Func":27.6
         },
         "prompted":false,
-        "size":null
+        "size":15.0
     },
     "VeriGen-Codegen-16B":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10137086",
@@ -155,7 +155,7 @@
     },
     "RTLCoder-Mistral-4bit":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"NONE",
+        "open-data":"Partial",
         "pass@1":{
             "verilogeval_machine":59.5,
             "verilogeval_human":33.8,
@@ -169,7 +169,7 @@
     },
     "RTLCoder-DeepSeek-4bit":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"NONE",
+        "open-data":"Partial",
         "pass@1":{
             "verilogeval_machine":56.5,
             "verilogeval_human":37.5,
@@ -183,7 +183,7 @@
     },
     "RTLCoder-Mistral":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"NONE",
+        "open-data":"Partial",
         "pass@1":{
             "verilogeval_machine":62.5,
             "verilogeval_human":36.7,
@@ -197,7 +197,7 @@
     },
     "RTLCoder-DeepSeek":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"NONE",
+        "open-data":"Partial",
         "pass@1":{
             "verilogeval_machine":61.2,
             "verilogeval_human":41.6,
@@ -211,7 +211,7 @@
     },
     "RTLCoder-Mistral-10k":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"NONE",
+        "open-data":"Partial",
         "pass@1":{
             "verilogeval_machine":56.5,
             "verilogeval_human":31.7,
@@ -225,7 +225,7 @@
     },
     "RTLCoder-DeepSeek-10k":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"NONE",
+        "open-data":"Partial",
         "pass@1":{
             "verilogeval_machine":55.3,
             "verilogeval_human":36.7,
@@ -239,7 +239,7 @@
     },
     "RTLCoder-Mistral-Direct":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"NONE",
+        "open-data":"Partial",
         "pass@1":{
             "verilogeval_machine":58.9,
             "verilogeval_human":34.4,
@@ -253,7 +253,7 @@
     },
     "RTLCoder-DeepSeek-Direct":{
         "link":"https://arxiv.org/abs/2312.08617",
-        "open-data":"NONE",
+        "open-data":"Partial",
         "pass@1":{
             "verilogeval_machine":59.8,
             "verilogeval_human":39.1,
@@ -559,7 +559,7 @@
         "prompted":true,
         "size":6.7
     },
-    "Proposed Model":{
+    "FROM_ENGLISH_TO_ASIC-Mistral-7B":{
         "link":"https://arxiv.org/abs/2403.07039",
         "open-data":"NONE",
         "pass@1":{
@@ -575,7 +575,7 @@
     },
     "CodeV-CodeLlama":{
         "link":"https://arxiv.org/abs/2407.10424",
-        "open-data":"NONE",
+        "open-data":"Partial",
         "pass@1":{
             "verilogeval_machine":78.1,
             "verilogeval_human":45.2,
@@ -589,7 +589,7 @@
     },
     "CodeV-DeepSeek":{
         "link":"https://arxiv.org/abs/2407.10424",
-        "open-data":"NONE",
+        "open-data":"Partial",
         "pass@1":{
             "verilogeval_machine":77.9,
             "verilogeval_human":52.7,
@@ -603,7 +603,7 @@
     },
     "CodeV-CodeQwen":{
         "link":"https://arxiv.org/abs/2407.10424",
-        "open-data":"NONE",
+        "open-data":"Partial",
         "pass@1":{
             "verilogeval_machine":77.6,
             "verilogeval_human":53.2,

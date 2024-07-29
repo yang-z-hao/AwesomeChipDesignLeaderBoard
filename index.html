@@ -12,9 +12,6 @@
     <title>Verilog LLM Leaderboard</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
-    <!-- favicon.svg -->
-    <!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👍</text></svg>"> -->
-    <!-- <link rel="icon" href="/favicon.svg" /> -->
     <link
       rel="icon"
       href="https://images.emojiterra.com/google/noto-emoji/unicode-15/color/1024px/1f9d1-1f4bb.png"
@@ -103,20 +100,6 @@
           >Comprehensive testing for large-scale Verilog models<br
         /></small>
       </h3>
-      <!-- <div class="d-flex flex-row justify-content-center gap-3">
-        <a href="https://github.com/IPRC-DIP/CodeV"
-          ><img
-            src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"
-            alt="github"
-            class="img-fluid"
-        /></a>
-        <a href="https://openreview.net/forum?id=1qvx610Cu7"
-          ><img
-            src="https://img.shields.io/badge/Paper-NeurIPS'23-a55fed.svg?style=for-the-badge"
-            alt="paper"
-            class="img-fluid"
-        /></a>
-      </div> -->
       <div class="btn-group" role="group" id="Benchmark">
         <input
           type="radio"
@@ -216,6 +199,11 @@
           </ul>
         </div>
       </div>
+      <div class="mt-3">
+        <label for="timeSlider">Time Filter:</label>
+        <input type="range" id="timeSlider" min="0" max="0" value="0" step="1">
+        <span id="timeValue">0</span>
+      </div>
     </div>
 
     <script>
@@ -232,17 +220,6 @@
       xhr.send();
 
       var data;
-      /*
-      After calculating the average, the data should be like this:
-      data[Model]["pass@1"] = {
-        "humaneval": ...,
-        "mbpp": ...,
-        "humaneval+": ...,
-        "mbpp+": ...,
-        "average": ...,
-        "average+": ...,
-      }
-    */
       if (xhr.status === 200) {
         data = JSON.parse(xhr.responseText);
         data = Object.keys(data).map((key) => {
@@ -252,7 +229,6 @@
           };
         });
       } else {
-        // pop up error window
         alert("Failed to load data from results.json");
       }
       const globalData = data;
@@ -381,7 +357,7 @@
       const theaders3 = ["Model", "Func(%)"];
       const label1Element = document.getElementById("label1")
       const label2Element = document.getElementById("label2")
-      // score: 'average', 'humaneval', 'mbpp', 'humaneval+', 'mbpp+'
+
       const displayTable = (table, score) => {
         if (score.includes("verilogeval")) {
           label1Element.textContent = "⚡Verilog-Eval Machine Tests⚡"
@@ -404,21 +380,18 @@
           theaders = theaders3
         }
 
-        // filter out Null
         data = globalData
           .filter((row) => {
-            return row["pass@1"][score] != null;
+            return row["pass@1"][score] != null && row["time"] <= timeSlider.value;
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
           });
         var thead = document.createElement("thead");
         var headerRow = document.createElement("tr");
-        // add rank
         var th = document.createElement("th");
         th.textContent = "#";
         headerRow.appendChild(th);
-        // headers
         theaders.forEach(function (header) {
           var th = document.createElement("th");
           th.textContent = header;
@@ -428,7 +401,6 @@
         table.appendChild(thead);
 
         var tbody = document.createElement("tbody");
-        // add rank
         var rank = 1;
         data.forEach((row) => {
           var dataRow = document.createElement("tr");
@@ -457,19 +429,15 @@
           var prompted = row["prompted"];
           var opendata = row["open-data"];
           if (prompted) {
-            // add a symbol to indicate the model is prompted
             var promptedSymbol = document.createElement("span");
             promptedSymbol.textContent = "✨";
             modelCell.appendChild(promptedSymbol);
           }
           if (opendata.toUpperCase() == "FULL") {
-            // add a symbol to indicate the model is fully open-sourced
             var promptedSymbol = document.createElement("span");
             promptedSymbol.textContent = "💚";
             modelCell.appendChild(promptedSymbol);
           } else if (opendata.toUpperCase() == "PARTIAL") {
-            // add a symbol to indicate the model is partially open-sourced
-            // i.e., a subset of the model implementation is close-sourced
             var promptedSymbol = document.createElement("span");
             promptedSymbol.textContent = "💙";
             modelCell.appendChild(promptedSymbol);
@@ -490,10 +458,9 @@
       };
 
       const displayChart = (score) => {
-        // sort first
         const data = globalData
           .filter((model) => {
-            return model["pass@1"][score] != null;
+            return model["pass@1"][score] != null && model["time"] <= timeSlider.value;
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
@@ -635,6 +602,25 @@
         displayTable(plusedTable, "RTLLM_V1_1_Syntax");
         clearChart();
         displayChart("RTLLM_V1_1_Func");
+      });
+
+      const timeSlider = document.getElementById("timeSlider");
+      const timeValue = document.getElementById("timeValue");
+
+      const timeValues = [...new Set(globalData.map(item => item.time))].sort((a, b) => a - b);
+      timeSlider.min = Math.min(...timeValues);
+      timeSlider.max = Math.max(...timeValues);
+      timeSlider.value = timeSlider.max;
+      timeValue.textContent = timeSlider.value;
+
+      timeSlider.addEventListener("input", function () {
+        timeValue.textContent = timeSlider.value;
+        const selectedScore = document.querySelector('input[name="btnradio"]:checked').id;
+        clearTable();
+        clearChart();
+        displayTable(originTable, selectedScore);
+        displayTable(plusedTable, selectedScore);
+        displayChart(selectedScore);
       });
 
       verilogeval_humanRadio.click();

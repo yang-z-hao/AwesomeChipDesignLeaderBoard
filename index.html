@@ -128,10 +128,10 @@
         <label class="btn btn-outline-primary" for="verilogeval_human">verilogeval_human</label>
         <input type="radio" class="btn-check" name="btnradio" id="verilogeval_machine" />
         <label class="btn btn-outline-primary" for="verilogeval_machine">verilogeval_machine</label>
-        <input type="radio" class="btn-check" name="btnradio" id="RTLLM_V1.1_Syntax" />
-        <label class="btn btn-outline-primary" for="RTLLM_V1.1_Syntax">RTLLM_V1.1_Syntax</label>
-        <input type="radio" class="btn-check" name="btnradio" id="RTLLM_V1.1_Func" />
-        <label class="btn btn-outline-primary" for="RTLLM_V1.1_Func">RTLLM_V1.1_Func</label>
+        <input type="radio" class="btn-check" name="btnradio" id="RTLLM_V1_1_Syntax" />
+        <label class="btn btn-outline-primary" for="RTLLM_V1_1_Syntax">RTLLM_V1_1_Syntax</label>
+        <input type="radio" class="btn-check" name="btnradio" id="RTLLM_V1_1_Func" />
+        <label class="btn btn-outline-primary" for="RTLLM_V1_1_Func">RTLLM_V1_1_Func</label>
       </div>
       <div id="chart" style="width: 100%; height: 600px"></div>
       <div class="container-fluid d-flex flex-row flex-nowrap">
@@ -612,10 +612,10 @@
 
       const verilogeval_humanRadio = document.getElementById("verilogeval_human");
       const verilogeval_machineRadio = document.getElementById("verilogeval_machine");
-      //const rtllm1syntaxRadio = document.getElementById("RTLLM_V1.0_Syntax")
-      //const rtllm1funcRadio = document.getElementById("RTLLM_V1.0_Func")
-      //const rtllm11syntaxRadio = document.getElementById("RTLLM_V1.1_Syntax")
-      const rtllm11funcRadio = document.getElementById("RTLLM_V1.1_Func")
+      //const rtllm1syntaxRadio = document.getElementById("RTLLM_V1_0_Syntax")
+      //const rtllm1funcRadio = document.getElementById("RTLLM_V1_0_Func")
+      const rtllm11syntaxRadio = document.getElementById("RTLLM_V1_1_Syntax")
+      const rtllm11funcRadio = document.getElementById("RTLLM_V1_1_Func")
 
       verilogeval_humanRadio.addEventListener("click", function () {
         clearTable();
@@ -633,12 +633,20 @@
         displayChart("verilogeval_machine");
       });
 
+      rtllm11syntaxRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "RTLLM_V1_1_Syntax");
+        displayTable(plusedTable, "RTLLM_V1_1_Func");
+        clearChart();
+        displayChart("RTLLM_V1_1_Syntax");
+      });
+
       rtllm11funcRadio.addEventListener("click", function () {
         clearTable();
-        displayTable(originTable, "RTLLM_V1.1_Syntax");
-        displayTable(plusedTable, "RTLLM_V1.1_Func");
+        displayTable(originTable, "RTLLM_V1_1_Syntax");
+        displayTable(plusedTable, "RTLLM_V1_1_Func");
         clearChart();
-        displayChart("RTLLM_V1.1_Syntax");
+        displayChart("RTLLM_V1_1_Func");
       });
 
       verilogeval_humanRadio.click();

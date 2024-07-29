@@ -376,6 +376,9 @@
       };
 
       const theaders = ["Model", "pass@1"];
+      const theaders1 = ["Model", "pass@1(%)"];
+      const theaders2 = ["Model", "Syntax(%)"];
+      const theaders3 = ["Model", "Func(%)"];
       const label1Element = document.getElementById("label1")
       const label2Element = document.getElementById("label2")
       // score: 'average', 'humaneval', 'mbpp', 'humaneval+', 'mbpp+'
@@ -383,15 +386,22 @@
         if (score.includes("verilogeval")) {
           label1Element.textContent = "⚡Verilog-Eval Machine Tests⚡"
           label2Element.textContent = "⚡Verilog-Eval Human Tests⚡"
-          theaders = ["Model", "pass@1(%)"];
+          
         } else if (score.includes("RTLLM_V1_0")) {
           label1Element.textContent = "⚡RTLLM V1.0 Syntax Tests⚡"
           label2Element.textContent = "⚡RTLLM V1.0 Func Tests⚡"
-          theaders = ["Model", "pass@1"];
+          
         } else {
           label1Element.textContent = "⚡RTLLM V1.1 Syntax Tests⚡"
           label2Element.textContent = "⚡RTLLM V1.1 Func Tests⚡"
-          theaders = ["Model", "pass@1"];
+        }
+        
+        if (scroe.includes("verilogeval")) {
+          theaders = theaders1
+        } else if (score.includes("Syntax")) {
+          theaders = theaders2
+        } else {
+          theaders = theaders3
         }
 
         // filter out Null

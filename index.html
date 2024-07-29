@@ -472,7 +472,7 @@
               .filter((model) => model["time"] != null),
           ),
         ].sort((a, b) => {
-          return new Date(a) - new Date(b);
+          return a - b;
         });
 
         chartOption.xAxis.data = timeList;
@@ -608,7 +608,7 @@
 
       const timeValues = [...new Set(globalData.map(item => item.time))]
                           .filter(time => time !== 0)
-                          .sort((a, b) => new Date(a) - new Date(b));
+                          .sort((a, b) => a - b);
       // 计算 timeValues 数组中相邻元素的差值的最小值
       const minStep = Math.min(...timeValues.slice(1).map((value, index) => value - timeValues[index]));
 

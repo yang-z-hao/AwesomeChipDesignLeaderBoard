@@ -140,7 +140,7 @@
       <div id="chart" style="width: 100%; height: 600px"></div>
       <div class="container-fluid d-flex flex-row flex-nowrap">
         <div class="container-fluid d-flex flex-column align-items-center">
-          <label for="plused" class="text-success mb-3"
+          <label for="plused" class="text-success mb-3" id="label1"
             >⚡Verilog-Eval Machine Tests⚡</label
           >
           <table
@@ -376,9 +376,15 @@
       };
 
       const theaders = ["Model", "pass@1"];
-
+      const label1Element = document.getElementById("label1")
       // score: 'average', 'humaneval', 'mbpp', 'humaneval+', 'mbpp+'
       const displayTable = (table, score) => {
+        if (score.includes("verilogeval_machine")) {
+          label1Element.textContent = "⚡Verilog-Eval Machine Tests⚡"
+        } else {
+          label1Element.textContent = "⚡Verilog-Eval Human Tests⚡"
+        }
+
         // filter out Null
         data = globalData
           .filter((row) => {

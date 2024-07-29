@@ -100,7 +100,7 @@
       <h1 class="text-nowrap mt-5">🏆 Verilog LLM Leaderboard 🏆</h1>
       <h3 class="fw-light text-nowrap">
         <small id="warning"
-          >EvalPlus evaluates AI Coders with rigorous tests.<br
+          >Comprehensive testing for large-scale Verilog models<br
         /></small>
       </h3>
       <div class="d-flex flex-row justify-content-center gap-3">
@@ -586,19 +586,22 @@
             const point = chartOption.series[series].data.find(
               (point) => point.name == model["Model"],
             );
-            point.itemStyle = {
-              opacity: 1.0,
-            };
-            point.label = {
-              show: true,
-              position: "top",
-              offset: offsets[idx],
-              formatter: function (params) {
-                return params.data.name;
-              },
-              color: "inherit",
-            };
+            if (point) {
+                point.itemStyle = {
+                opacity: 1.0,
+              };
+              point.label = {
+                show: true,
+                position: "top",
+                offset: offsets[idx],
+                formatter: function (params) {
+                  return params.data.name;
+                },
+                color: "inherit",
+              };
+            }
           };
+            
           if (bestNonPromptedModel) {
             hightLightBest(0, bestNonPromptedModel);
           }

@@ -466,17 +466,17 @@
             return b["pass@1"][score] - a["pass@1"][score];
           });
 
-        const sizeList = [
+        const timeList = [
           ...new Set(
             data
-              .filter((model) => model["size"] != null)
-              .map((model) => Math.round(model["size"])),
+              .filter((model) => model["time"] != null)
+              .map((model) => Math.round(model["time"])),
           ),
         ].sort((a, b) => {
           return a - b;
         });
 
-        chartOption.xAxis.data = sizeList;
+        chartOption.xAxis.data = timeList;
         chartOption.yAxis.max =
           1 + Math.max(...data.map((model) => model["pass@1"][score]));
 
@@ -489,7 +489,7 @@
 
         [nonPromptedModels, promptedModels].forEach((series, idx) => {
           series.forEach((model) => {
-            if (model["size"] == null) {
+            if (model["time"] == null) {
               chartOption.series[idx].markLine.data.push({
                 name: model["Model"],
                 yAxis: model["pass@1"][score],
@@ -497,23 +497,23 @@
             } else {
               chartOption.series[idx].data.push({
                 name: model["Model"],
-                value: [`${Math.round(model["size"])}`, model["pass@1"][score]],
+                value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
               });
             }
           });
         });
 
         const offsets = [[50, 0]]
-          .concat(Array.from({ length: sizeList.length - 2 }, () => [0, 0]))
+          .concat(Array.from({ length: timeList.length - 2 }, () => [0, 0]))
           .concat([[-50, 0]]);
-        sizeList.forEach((size, idx) => {
+        timeList.forEach((time, idx) => {
           const bestNonPromptedModel = nonPromptedModels
-            .filter((model) => Math.round(model["size"]) == size)
+            .filter((model) => Math.round(model["time"]) == time)
             .sort((a, b) => {
               return b["pass@1"][score] - a["pass@1"][score];
             })[0];
           const bestPromptedModel = promptedModels
-            .filter((model) => Math.round(model["size"]) == size)
+            .filter((model) => Math.round(model["time"]) == time)
             .sort((a, b) => {
               return b["pass@1"][score] - a["pass@1"][score];
             })[0];

@@ -12,7 +12,7 @@
         },
         "prompted":true,
         "size":null,
-        "time":""
+        "time":0
     },
     "GPT-4":{
         "link":"",
@@ -27,7 +27,7 @@
         },
         "prompted":true,
         "size":null,
-        "time":""
+        "time":0
     },
     "StarCoder":{
         "link":"",
@@ -42,7 +42,7 @@
         },
         "prompted":false,
         "size":15.0,
-        "time":""
+        "time":0
     },
     "VeriGen-Codegen-16B":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10137086",
@@ -57,7 +57,7 @@
         },
         "prompted":true,
         "size":16.0,
-        "time":20221213.0
+        "time":20221213
     },
     "VerilogEval-Codegen-16B-verilog-sft":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10323812/",
@@ -72,7 +72,7 @@
         },
         "prompted":true,
         "size":16.0,
-        "time":20230914.0
+        "time":20230914
     },
     "VerilogEval-Codegen-16B-multi-sft":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10323812/",
@@ -87,7 +87,7 @@
         },
         "prompted":true,
         "size":16.0,
-        "time":20230914.0
+        "time":20230914
     },
     "VerilogEval-Codegen-6B-verilog-sft":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10323812/",
@@ -102,7 +102,7 @@
         },
         "prompted":true,
         "size":6.0,
-        "time":20230914.0
+        "time":20230914
     },
     "VerilogEval-Codegen-6B-multi-sft":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10323812/",
@@ -117,7 +117,7 @@
         },
         "prompted":true,
         "size":6.0,
-        "time":20230914.0
+        "time":20230914
     },
     "VerilogEval-Codegen-2B-verilog-sft":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10323812/",
@@ -132,7 +132,7 @@
         },
         "prompted":true,
         "size":2.0,
-        "time":20230914.0
+        "time":20230914
     },
     "VerilogEval-Codegen-2B-multi-sft":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10323812/",
@@ -147,7 +147,7 @@
         },
         "prompted":true,
         "size":2.0,
-        "time":20230914.0
+        "time":20230914
     },
     "VerilogEval-Codegen-350M-multi-sft":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10323812/",
@@ -162,7 +162,7 @@
         },
         "prompted":true,
         "size":0.35,
-        "time":20230914.0
+        "time":20230914
     },
     "RTLCoder-Mistral-4bit":{
         "link":"https://arxiv.org/abs/2312.08617",
@@ -177,7 +177,7 @@
         },
         "prompted":true,
         "size":0.35,
-        "time":20231213.0
+        "time":20231213
     },
     "RTLCoder-DeepSeek-4bit":{
         "link":"https://arxiv.org/abs/2312.08617",
@@ -192,7 +192,7 @@
         },
         "prompted":true,
         "size":6.7,
-        "time":20231213.0
+        "time":20231213
     },
     "RTLCoder-Mistral":{
         "link":"https://arxiv.org/abs/2312.08617",
@@ -207,7 +207,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20231213.0
+        "time":20231213
     },
     "RTLCoder-DeepSeek":{
         "link":"https://arxiv.org/abs/2312.08617",
@@ -222,7 +222,7 @@
         },
         "prompted":true,
         "size":6.7,
-        "time":20231213.0
+        "time":20231213
     },
     "RTLCoder-Mistral-10k":{
         "link":"https://arxiv.org/abs/2312.08617",
@@ -237,7 +237,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20231213.0
+        "time":20231213
     },
     "RTLCoder-DeepSeek-10k":{
         "link":"https://arxiv.org/abs/2312.08617",
@@ -252,7 +252,7 @@
         },
         "prompted":true,
         "size":6.7,
-        "time":20231213.0
+        "time":20231213
     },
     "RTLCoder-Mistral-Direct":{
         "link":"https://arxiv.org/abs/2312.08617",
@@ -267,7 +267,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20231213.0
+        "time":20231213
     },
     "RTLCoder-DeepSeek-Direct":{
         "link":"https://arxiv.org/abs/2312.08617",
@@ -282,7 +282,7 @@
         },
         "prompted":true,
         "size":6.7,
-        "time":20231213.0
+        "time":20231213
     },
     "Llama2-13B-FT":{
         "link":"https://arxiv.org/abs/2403.11202",
@@ -297,7 +297,7 @@
         },
         "prompted":true,
         "size":13.0,
-        "time":20240317.0
+        "time":20240317
     },
     "Llama2-7B-FT":{
         "link":"https://arxiv.org/abs/2403.11202",
@@ -312,7 +312,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20240317.0
+        "time":20240317
     },
     "ChipNeMo-7B":{
         "link":"https://arxiv.org/abs/2311.00176",
@@ -327,7 +327,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20231031.0
+        "time":20231031
     },
     "ChipNeMo-13B":{
         "link":"https://arxiv.org/abs/2311.00176",
@@ -342,7 +342,7 @@
         },
         "prompted":true,
         "size":13.0,
-        "time":20231031.0
+        "time":20231031
     },
     "ChipNeMo-70B":{
         "link":"https://arxiv.org/abs/2311.00176",
@@ -357,7 +357,7 @@
         },
         "prompted":true,
         "size":70.0,
-        "time":20231031.0
+        "time":20231031
     },
     "CodeGen-2B fine-grained labels":{
         "link":"https://arxiv.org/abs/2404.08029",
@@ -372,7 +372,7 @@
         },
         "prompted":true,
         "size":2.0,
-        "time":20240411.0
+        "time":20240411
     },
     "CodeGen-6B fine-grained labels":{
         "link":"https://arxiv.org/abs/2404.08029",
@@ -387,7 +387,7 @@
         },
         "prompted":true,
         "size":6.0,
-        "time":20240411.0
+        "time":20240411
     },
     "CodeGen-16B fine-grained labels":{
         "link":"https://arxiv.org/abs/2404.08029",
@@ -402,7 +402,7 @@
         },
         "prompted":true,
         "size":16.0,
-        "time":20240411.0
+        "time":20240411
     },
     "CodeGen-2B MEV-LLM":{
         "link":"https://arxiv.org/abs/2404.08029",
@@ -417,7 +417,7 @@
         },
         "prompted":true,
         "size":2.0,
-        "time":20240411.0
+        "time":20240411
     },
     "CodeGen-6B MEV-LLM":{
         "link":"https://arxiv.org/abs/2404.08029",
@@ -432,7 +432,7 @@
         },
         "prompted":true,
         "size":6.0,
-        "time":20240411.0
+        "time":20240411
     },
     "CodeGen-16B MEV-LLM":{
         "link":"https://arxiv.org/abs/2404.08029",
@@ -447,7 +447,7 @@
         },
         "prompted":true,
         "size":16.0,
-        "time":20240411.0
+        "time":20240411
     },
     "GEMMA-2B fine-grained labels":{
         "link":"https://arxiv.org/abs/2404.08029",
@@ -462,7 +462,7 @@
         },
         "prompted":true,
         "size":2.0,
-        "time":20240411.0
+        "time":20240411
     },
     "GEMMA-7B fine-grained labels":{
         "link":"https://arxiv.org/abs/2404.08029",
@@ -477,7 +477,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20240411.0
+        "time":20240411
     },
     "GEMMA-2B MEV-LLM":{
         "link":"https://arxiv.org/abs/2404.08029",
@@ -492,7 +492,7 @@
         },
         "prompted":true,
         "size":2.0,
-        "time":20240411.0
+        "time":20240411
     },
     "GEMMA-7B MEV-LLM":{
         "link":"https://arxiv.org/abs/2404.08029",
@@ -507,7 +507,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20240411.0
+        "time":20240411
     },
     "BetterV-CodeLlama":{
         "link":"https://arxiv.org/abs/2402.03375",
@@ -522,7 +522,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20240203.0
+        "time":20240203
     },
     "BetterV-DeepSeek":{
         "link":"https://arxiv.org/abs/2402.03375",
@@ -537,7 +537,7 @@
         },
         "prompted":true,
         "size":6.7,
-        "time":20240203.0
+        "time":20240203
     },
     "BetterV-CodeQwen":{
         "link":"https://arxiv.org/abs/2402.03375",
@@ -552,7 +552,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20240203.0
+        "time":20240203
     },
     "BetterV-CodeLlama-base":{
         "link":"https://arxiv.org/abs/2402.03375",
@@ -567,7 +567,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20240203.0
+        "time":20240203
     },
     "CodeLlama-Dis":{
         "link":"https://arxiv.org/abs/2402.03375",
@@ -582,7 +582,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20240203.0
+        "time":20240203
     },
     "ITERTL-DeepSeek-10k":{
         "link":"https://arxiv.org/abs/2407.12022",
@@ -597,7 +597,7 @@
         },
         "prompted":true,
         "size":6.7,
-        "time":20240627.0
+        "time":20240627
     },
     "FROM_ENGLISH_TO_ASIC-Mistral-7B":{
         "link":"https://arxiv.org/abs/2403.07039",
@@ -612,7 +612,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20240311.0
+        "time":20240311
     },
     "CodeV-CodeLlama":{
         "link":"https://arxiv.org/abs/2407.10424",
@@ -627,7 +627,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20240714.0
+        "time":20240714
     },
     "CodeV-DeepSeek":{
         "link":"https://arxiv.org/abs/2407.10424",
@@ -642,7 +642,7 @@
         },
         "prompted":true,
         "size":6.7,
-        "time":20240714.0
+        "time":20240714
     },
     "CodeV-CodeQwen":{
         "link":"https://arxiv.org/abs/2407.10424",
@@ -657,7 +657,7 @@
         },
         "prompted":true,
         "size":7.0,
-        "time":20240714.0
+        "time":20240714
     },
     " CodeLlama-7b-Instruct":{
         "link":"",
@@ -672,7 +672,7 @@
         },
         "prompted":false,
         "size":7.0,
-        "time":""
+        "time":0
     },
     "Deepseek-Coder-6.7b-Instruct":{
         "link":"",
@@ -687,7 +687,7 @@
         },
         "prompted":false,
         "size":6.7,
-        "time":""
+        "time":0
     },
     "CodeQwen1.5-7B-Chat":{
         "link":"",
@@ -702,7 +702,7 @@
         },
         "prompted":false,
         "size":7.0,
-        "time":""
+        "time":0
     },
     "Codegen2":{
         "link":"",
@@ -717,7 +717,7 @@
         },
         "prompted":false,
         "size":16.0,
-        "time":""
+        "time":0
     },
     "Mistral-7B-v0.1":{
         "link":"",
@@ -732,6 +732,6 @@
         },
         "prompted":false,
         "size":7.0,
-        "time":""
+        "time":0
     }
 }

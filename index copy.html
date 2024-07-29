@@ -12,6 +12,9 @@
     <title>Verilog LLM Leaderboard</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+    <!-- favicon.svg -->
+    <!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👍</text></svg>"> -->
+    <!-- <link rel="icon" href="/favicon.svg" /> -->
     <link
       rel="icon"
       href="https://images.emojiterra.com/google/noto-emoji/unicode-15/color/1024px/1f9d1-1f4bb.png"
@@ -100,6 +103,20 @@
           >Comprehensive testing for large-scale Verilog models<br
         /></small>
       </h3>
+      <!-- <div class="d-flex flex-row justify-content-center gap-3">
+        <a href="https://github.com/IPRC-DIP/CodeV"
+          ><img
+            src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"
+            alt="github"
+            class="img-fluid"
+        /></a>
+        <a href="https://openreview.net/forum?id=1qvx610Cu7"
+          ><img
+            src="https://img.shields.io/badge/Paper-NeurIPS'23-a55fed.svg?style=for-the-badge"
+            alt="paper"
+            class="img-fluid"
+        /></a>
+      </div> -->
       <div class="btn-group" role="group" id="Benchmark">
         <input
           type="radio"
@@ -205,40 +222,41 @@
     <script>
       const originTable = document.getElementById("origin");
       const plusedTable = document.getElementById("plused");
+      const benchmarkRadio = document.getElementById("Benchmark");
       const chartDom = document.getElementById("chart");
-      let chart = echarts.init(chartDom);
-      let globalData = [];
+      var chart = echarts.init(chartDom);
 
       const dataUrl = "results_verilog.json";
 
-      const loadData = async () => {
-        try {
-          const response = await fetch(dataUrl);
-          if (!response.ok) {
-            throw new Error("Failed to load data from results.json");
-          }
-          const data = await response.json();
-          globalData = Object.keys(data).map((key) => {
-            return {
-              Model: key,
-              ...data[key],
-            };
-          });
-          // Sort data by time if time is available
-          globalData.sort((a, b) => {
-            if (a.time && b.time) {
-              return new Date(a.time) - new Date(b.time);
-            } else if (a.time) {
-              return -1;
-            } else if (b.time) {
-              return 1;
-            }
-            return 0;
-          });
-        } catch (error) {
-          alert(error.message);
-        }
-      };
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "results_verilog.json", false); // false makes the request synchronous
+      xhr.send();
+
+      var data;
+      /*
+      After calculating the average, the data should be like this:
+      data[Model]["pass@1"] = {
+        "humaneval": ...,
+        "mbpp": ...,
+        "humaneval+": ...,
+        "mbpp+": ...,
+        "average": ...,
+        "average+": ...,
+      }
+    */
+      if (xhr.status === 200) {
+        data = JSON.parse(xhr.responseText);
+        data = Object.keys(data).map((key) => {
+          return {
+            Model: key,
+            ...data[key],
+          };
+        });
+      } else {
+        // pop up error window
+        alert("Failed to load data from results.json");
+      }
+      const globalData = data;
 
       const clearTable = () => {
         originTable.innerHTML = "";
@@ -253,207 +271,14 @@
         chartOption.series[1].markLine.data = [];
       };
 
-      const theaders1 = ["Model", "pass@1(%)"];
-      const theaders2 = ["Model", "Syntax(%)"];
-      const theaders3 = ["Model", "Func(%)"];
-      const label1Element = document.getElementById("label1")
-      const label2Element = document.getElementById("label2")
-
-      const displayTable = (table, score, time) => {
-        if (score.includes("verilogeval")) {
-          label1Element.textContent = "⚡Verilog-Eval Machine Tests⚡"
-          label2Element.textContent = "⚡Verilog-Eval Human Tests⚡"
-        } else if (score.includes("RTLLM_V1_0")) {
-          label1Element.textContent = "⚡RTLLM V1.0 Syntax Tests⚡"
-          label2Element.textContent = "⚡RTLLM V1.0 Func Tests⚡"
-        } else {
-          label1Element.textContent = "⚡RTLLM V1.1 Syntax Tests⚡"
-          label2Element.textContent = "⚡RTLLM V1.1 Func Tests⚡"
-        }
-
-        let theaders = theaders1;
-        if (score.includes("Syntax")) {
-          theaders = theaders2;
-        } else if (score.includes("Func")) {
-          theaders = theaders3;
-        }
-
-        const data = globalData
-          .filter((row) => {
-            return row["pass@1"][score] != null && (!row.time || new Date(row.time) <= new Date(time));
-          })
-          .sort((a, b) => {
-            return b["pass@1"][score] - a["pass@1"][score];
-          });
-
-        const thead = document.createElement("thead");
-        const headerRow = document.createElement("tr");
-        const th = document.createElement("th");
-        th.textContent = "#";
-        headerRow.appendChild(th);
-
-        theaders.forEach((header) => {
-          const th = document.createElement("th");
-          th.textContent = header;
-          headerRow.appendChild(th);
-        });
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
-
-        const tbody = document.createElement("tbody");
-        let rank = 1;
-        data.forEach((row) => {
-          const dataRow = document.createElement("tr");
-          const rankCell = document.createElement("td");
-          rankCell.textContent = rank;
-          dataRow.appendChild(rankCell);
-
-          const modelCell = document.createElement("td");
-          if (rank == 1) {
-            modelCell.textContent = "🥇 ";
-          } else if (rank == 2) {
-            modelCell.textContent = "🥈 ";
-          } else if (rank == 3) {
-            modelCell.textContent = "🥉 ";
-          } else {
-            modelCell.textContent = "";
-          }
-          rank++;
-
-          const modelLink = document.createElement("a");
-          modelLink.href = row["link"];
-          modelLink.textContent = row["Model"];
-          modelLink.classList.add("link-underline-primary");
-          modelLink.classList.add("text-nowrap");
-          modelCell.appendChild(modelLink);
-          modelCell.classList.add("d-flex");
-          modelCell.classList.add("flex-nowrap");
-
-          const prompted = row["prompted"];
-          const opendata = row["open-data"];
-          if (prompted) {
-            const promptedSymbol = document.createElement("span");
-            promptedSymbol.textContent = "✨";
-            modelCell.appendChild(promptedSymbol);
-          }
-          if (opendata.toUpperCase() == "FULL") {
-            const promptedSymbol = document.createElement("span");
-            promptedSymbol.textContent = "💚";
-            modelCell.appendChild(promptedSymbol);
-          } else if (opendata.toUpperCase() == "PARTIAL") {
-            const promptedSymbol = document.createElement("span");
-            promptedSymbol.textContent = "💙";
-            modelCell.appendChild(promptedSymbol);
-          }
-          dataRow.appendChild(modelCell);
-
-          const passCell = document.createElement("td");
-          if (table == originTable) {
-            passCell.classList.add("text-danger");
-          } else if (table == plusedTable) {
-            passCell.textContent = "⚡";
-            passCell.classList.add("text-success");
-          }
-          passCell.textContent += row["pass@1"][score];
-          dataRow.appendChild(passCell);
-          tbody.appendChild(dataRow);
-        });
-        table.appendChild(tbody);
-      };
-
-      const displayChart = (score, time) => {
-        const data = globalData
-          .filter((model) => {
-            return model["pass@1"][score] != null && (!model.time || new Date(model.time) <= new Date(time));
-          })
-          .sort((a, b) => {
-            return b["pass@1"][score] - a["pass@1"][score];
-          });
-
-        const sizeList = [
-          ...new Set(
-            data
-              .filter((model) => model["size"] != null)
-              .map((model) => Math.round(model["size"])),
-          ),
-        ].sort((a, b) => a - b);
-
-        chartOption.xAxis.data = sizeList;
-        chartOption.yAxis.max =
-          1 + Math.max(...data.map((model) => model["pass@1"][score]));
-
-        const nonPromptedModels = data.filter(
-          (model) => model["prompted"] == false,
-        );
-        const promptedModels = data.filter(
-          (model) => model["prompted"] == true,
-        );
-
-        [nonPromptedModels, promptedModels].forEach((series, idx) => {
-          series.forEach((model) => {
-            if (model["size"] == null) {
-              chartOption.series[idx].markLine.data.push({
-                name: model["Model"],
-                yAxis: model["pass@1"][score],
-              });
-            } else {
-              chartOption.series[idx].data.push({
-                name: model["Model"],
-                value: [`${Math.round(model["size"])}`, model["pass@1"][score]],
-              });
-            }
-          });
-        });
-
-        const offsets = [[50, 0]]
-          .concat(Array.from({ length: sizeList.length - 2 }, () => [0, 0]))
-          .concat([[-50, 0]]);
-        sizeList.forEach((size, idx) => {
-          const bestNonPromptedModel = nonPromptedModels
-            .filter((model) => Math.round(model["size"]) == size)
-            .sort((a, b) => b["pass@1"][score] - a["pass@1"][score])[0];
-          const bestPromptedModel = promptedModels
-            .filter((model) => Math.round(model["size"]) == size)
-            .sort((a, b) => b["pass@1"][score] - a["pass@1"][score])[0];
-          const hightLightBest = (series, model) => {
-            const point = chartOption.series[series].data.find(
-              (point) => point.name == model["Model"],
-            );
-            if (point) {
-                point.itemStyle = {
-                opacity: 1.0,
-              };
-              point.label = {
-                show: true,
-                position: "top",
-                offset: offsets[idx],
-                formatter: function (params) {
-                  return params.data.name;
-                },
-                color: "inherit",
-              };
-            }
-          };
-            
-          if (bestNonPromptedModel) {
-            hightLightBest(0, bestNonPromptedModel);
-          }
-          if (bestPromptedModel) {
-            hightLightBest(1, bestPromptedModel);
-          }
-        });
-        
-        chart.setOption(chartOption);
-      };
-
-      const chartOption = {
+      var chartOption = {
         legend: {
           data: ["pass@1*"],
         },
         grid: {
           left: "1%",
           right: "4%",
-          bottom: "10%", // 调整底部空间以容纳 dataZoom
+          bottom: "10%",
           containLabel: true,
         },
         xAxis: {
@@ -572,74 +397,273 @@
         ],
       };
 
-      const setupEventListeners = () => {
-        const verilogeval_humanRadio = document.getElementById("verilogeval_human");
-        const verilogeval_machineRadio = document.getElementById("verilogeval_machine");
-        const rtllm1syntaxRadio = document.getElementById("RTLLM_V1_0_Syntax")
-        const rtllm1funcRadio = document.getElementById("RTLLM_V1_0_Func")
-        const rtllm11syntaxRadio = document.getElementById("RTLLM_V1_1_Syntax")
-        const rtllm11funcRadio = document.getElementById("RTLLM_V1_1_Func")
+      var theaders = ["Model", "pass@1"];
+      const theaders1 = ["Model", "pass@1(%)"];
+      const theaders2 = ["Model", "Syntax(%)"];
+      const theaders3 = ["Model", "Func(%)"];
+      const label1Element = document.getElementById("label1")
+      const label2Element = document.getElementById("label2")
+      // score: 'average', 'humaneval', 'mbpp', 'humaneval+', 'mbpp+'
+      const displayTable = (table, score) => {
+        if (score.includes("verilogeval")) {
+          label1Element.textContent = "⚡Verilog-Eval Machine Tests⚡"
+          label2Element.textContent = "⚡Verilog-Eval Human Tests⚡"
+          
+        } else if (score.includes("RTLLM_V1_0")) {
+          label1Element.textContent = "⚡RTLLM V1.0 Syntax Tests⚡"
+          label2Element.textContent = "⚡RTLLM V1.0 Func Tests⚡"
+          
+        } else {
+          label1Element.textContent = "⚡RTLLM V1.1 Syntax Tests⚡"
+          label2Element.textContent = "⚡RTLLM V1.1 Func Tests⚡"
+        }
+        
+        if (score.includes("verilogeval")) {
+          theaders = theaders1
+        } else if (score.includes("Syntax")) {
+          theaders = theaders2
+        } else {
+          theaders = theaders3
+        }
 
-        verilogeval_humanRadio.addEventListener("click", () => {
-          clearTable();
-          displayTable(originTable, "verilogeval_human", new Date());
-          displayTable(plusedTable, "verilogeval_machine", new Date());
-          clearChart();
-          displayChart("verilogeval_human", new Date());
+        // filter out Null
+        data = globalData
+          .filter((row) => {
+            return row["pass@1"][score] != null;
+          })
+          .sort((a, b) => {
+            return b["pass@1"][score] - a["pass@1"][score];
+          });
+        var thead = document.createElement("thead");
+        var headerRow = document.createElement("tr");
+        // add rank
+        var th = document.createElement("th");
+        th.textContent = "#";
+        headerRow.appendChild(th);
+        // headers
+        theaders.forEach(function (header) {
+          var th = document.createElement("th");
+          th.textContent = header;
+          headerRow.appendChild(th);
         });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
 
-        verilogeval_machineRadio.addEventListener("click", () => {
-          clearTable();
-          displayTable(originTable, "verilogeval_human", new Date());
-          displayTable(plusedTable, "verilogeval_machine", new Date());
-          clearChart();
-          displayChart("verilogeval_machine", new Date());
+        var tbody = document.createElement("tbody");
+        // add rank
+        var rank = 1;
+        data.forEach((row) => {
+          var dataRow = document.createElement("tr");
+          var rankCell = document.createElement("td");
+          rankCell.textContent = rank;
+          dataRow.appendChild(rankCell);
+          var modelCell = document.createElement("td");
+          if (rank == 1) {
+            modelCell.textContent = "🥇 ";
+          } else if (rank == 2) {
+            modelCell.textContent = "🥈 ";
+          } else if (rank == 3) {
+            modelCell.textContent = "🥉 ";
+          } else {
+            modelCell.textContent = "";
+          }
+          rank++;
+          var modelLink = document.createElement("a");
+          modelLink.href = row["link"];
+          modelLink.textContent = row["Model"];
+          modelLink.classList.add("link-underline-primary");
+          modelLink.classList.add("text-nowrap");
+          modelCell.appendChild(modelLink);
+          modelCell.classList.add("d-flex");
+          modelCell.classList.add("flex-nowrap");
+          var prompted = row["prompted"];
+          var opendata = row["open-data"];
+          if (prompted) {
+            // add a symbol to indicate the model is prompted
+            var promptedSymbol = document.createElement("span");
+            promptedSymbol.textContent = "✨";
+            modelCell.appendChild(promptedSymbol);
+          }
+          if (opendata.toUpperCase() == "FULL") {
+            // add a symbol to indicate the model is fully open-sourced
+            var promptedSymbol = document.createElement("span");
+            promptedSymbol.textContent = "💚";
+            modelCell.appendChild(promptedSymbol);
+          } else if (opendata.toUpperCase() == "PARTIAL") {
+            // add a symbol to indicate the model is partially open-sourced
+            // i.e., a subset of the model implementation is close-sourced
+            var promptedSymbol = document.createElement("span");
+            promptedSymbol.textContent = "💙";
+            modelCell.appendChild(promptedSymbol);
+          }
+          dataRow.appendChild(modelCell);
+          var passCell = document.createElement("td");
+          if (table == originTable) {
+            passCell.classList.add("text-danger");
+          } else if (table == plusedTable) {
+            passCell.textContent = "⚡";
+            passCell.classList.add("text-success");
+          }
+          passCell.textContent += row["pass@1"][score];
+          dataRow.appendChild(passCell);
+          tbody.appendChild(dataRow);
         });
-
-        rtllm1syntaxRadio.addEventListener("click", () => {
-          clearTable();
-          displayTable(originTable, "RTLLM_V1_0_Func", new Date());
-          displayTable(plusedTable, "RTLLM_V1_0_Syntax", new Date());
-          clearChart();
-          displayChart("RTLLM_V1_0_Syntax", new Date());
-        });
-
-        rtllm1funcRadio.addEventListener("click", () => {
-          clearTable();
-          displayTable(originTable, "RTLLM_V1_0_Func", new Date());
-          displayTable(plusedTable, "RTLLM_V1_0_Syntax", new Date());
-          clearChart();
-          displayChart("RTLLM_V1_0_Func", new Date());
-        });
-
-        rtllm11syntaxRadio.addEventListener("click", () => {
-          clearTable();
-          displayTable(originTable, "RTLLM_V1_1_Func", new Date());
-          displayTable(plusedTable, "RTLLM_V1_1_Syntax", new Date());
-          clearChart();
-          displayChart("RTLLM_V1_1_Syntax", new Date());
-        });
-
-        rtllm11funcRadio.addEventListener("click", () => {
-          clearTable();
-          displayTable(originTable, "RTLLM_V1_1_Func", new Date());
-          displayTable(plusedTable, "RTLLM_V1_1_Syntax", new Date());
-          clearChart();
-          displayChart("RTLLM_V1_1_Func", new Date());
-        });
+        table.appendChild(tbody);
       };
 
-      const init = async () => {
-        await loadData();
-        setupEventListeners();
-        document.getElementById("verilogeval_human").click();
+      const displayChart = (score) => {
+        // sort first
+        const data = globalData
+          .filter((model) => {
+            return model["pass@1"][score] != null;
+          })
+          .sort((a, b) => {
+            return b["pass@1"][score] - a["pass@1"][score];
+          });
+
+        const sizeList = [
+          ...new Set(
+            data
+              .filter((model) => model["size"] != null)
+              .map((model) => Math.round(model["size"])),
+          ),
+        ].sort((a, b) => {
+          return a - b;
+        });
+
+        chartOption.xAxis.data = sizeList;
+        chartOption.yAxis.max =
+          1 + Math.max(...data.map((model) => model["pass@1"][score]));
+
+        const nonPromptedModels = data.filter(
+          (model) => model["prompted"] == false,
+        );
+        const promptedModels = data.filter(
+          (model) => model["prompted"] == true,
+        );
+
+        [nonPromptedModels, promptedModels].forEach((series, idx) => {
+          series.forEach((model) => {
+            if (model["size"] == null) {
+              chartOption.series[idx].markLine.data.push({
+                name: model["Model"],
+                yAxis: model["pass@1"][score],
+              });
+            } else {
+              chartOption.series[idx].data.push({
+                name: model["Model"],
+                value: [`${Math.round(model["size"])}`, model["pass@1"][score]],
+              });
+            }
+          });
+        });
+
+        const offsets = [[50, 0]]
+          .concat(Array.from({ length: sizeList.length - 2 }, () => [0, 0]))
+          .concat([[-50, 0]]);
+        sizeList.forEach((size, idx) => {
+          const bestNonPromptedModel = nonPromptedModels
+            .filter((model) => Math.round(model["size"]) == size)
+            .sort((a, b) => {
+              return b["pass@1"][score] - a["pass@1"][score];
+            })[0];
+          const bestPromptedModel = promptedModels
+            .filter((model) => Math.round(model["size"]) == size)
+            .sort((a, b) => {
+              return b["pass@1"][score] - a["pass@1"][score];
+            })[0];
+          const hightLightBest = (series, model) => {
+            const point = chartOption.series[series].data.find(
+              (point) => point.name == model["Model"],
+            );
+            if (point) {
+                point.itemStyle = {
+                opacity: 1.0,
+              };
+              point.label = {
+                show: true,
+                position: "top",
+                offset: offsets[idx],
+                formatter: function (params) {
+                  return params.data.name;
+                },
+                color: "inherit",
+              };
+            }
+          };
+            
+          if (bestNonPromptedModel) {
+            hightLightBest(0, bestNonPromptedModel);
+          }
+          if (bestPromptedModel) {
+            hightLightBest(1, bestPromptedModel);
+          }
+        });
+
+        var chart = echarts.init(chartDom);
+        chart.setOption(chartOption);
       };
 
-      window.addEventListener("resize", () => {
-        chart.resize();
+      const verilogeval_humanRadio = document.getElementById("verilogeval_human");
+      const verilogeval_machineRadio = document.getElementById("verilogeval_machine");
+      const rtllm1syntaxRadio = document.getElementById("RTLLM_V1_0_Syntax")
+      const rtllm1funcRadio = document.getElementById("RTLLM_V1_0_Func")
+      const rtllm11syntaxRadio = document.getElementById("RTLLM_V1_1_Syntax")
+      const rtllm11funcRadio = document.getElementById("RTLLM_V1_1_Func")
+
+      verilogeval_humanRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "verilogeval_human");
+        displayTable(plusedTable, "verilogeval_machine");
+        clearChart();
+        displayChart("verilogeval_human");
       });
 
-      init();
+      verilogeval_machineRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "verilogeval_human");
+        displayTable(plusedTable, "verilogeval_machine");
+        clearChart();
+        displayChart("verilogeval_machine");
+      });
+
+      rtllm1syntaxRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "RTLLM_V1_0_Func");
+        displayTable(plusedTable, "RTLLM_V1_0_Syntax");
+        clearChart();
+        displayChart("RTLLM_V1_0_Syntax");
+      });
+
+      rtllm1funcRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "RTLLM_V1_0_Func");
+        displayTable(plusedTable, "RTLLM_V1_0_Syntax");
+        clearChart();
+        displayChart("RTLLM_V1_0_Func");
+      });
+
+      rtllm11syntaxRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "RTLLM_V1_1_Func");
+        displayTable(plusedTable, "RTLLM_V1_1_Syntax");
+        clearChart();
+        displayChart("RTLLM_V1_1_Syntax");
+      });
+
+      rtllm11funcRadio.addEventListener("click", function () {
+        clearTable();
+        displayTable(originTable, "RTLLM_V1_1_Func");
+        displayTable(plusedTable, "RTLLM_V1_1_Syntax");
+        clearChart();
+        displayChart("RTLLM_V1_1_Func");
+      });
+
+      verilogeval_humanRadio.click();
+
+      window.addEventListener("resize", () => {
+        this.chart.resize();
+      });
     </script>
   </body>
 </html>

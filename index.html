@@ -128,6 +128,8 @@
         <label class="btn btn-outline-primary" for="verilogeval_human">verilogeval_human</label>
         <input type="radio" class="btn-check" name="btnradio" id="verilogeval_machine" />
         <label class="btn btn-outline-primary" for="verilogeval_machine">verilogeval_machine</label>
+        <input type="radio" class="btn-check" name="btnradio" id="RTLLM_V1.1_Syntax" />
+        <label class="btn btn-outline-primary" for="RTLLM_V1.1_Syntax">RTLLM_V1.1_Syntax</label>
         <input type="radio" class="btn-check" name="btnradio" id="RTLLM_V1.1_Func" />
         <label class="btn btn-outline-primary" for="RTLLM_V1.1_Func">RTLLM_V1.1_Func</label>
       </div>
@@ -636,7 +638,7 @@
         displayTable(originTable, "RTLLM_V1.1_Syntax");
         displayTable(plusedTable, "RTLLM_V1.1_Func");
         clearChart();
-        displayChart("RTLLM_V1.1_Func");
+        displayChart("RTLLM_V1.1_Syntax");
       });
 
       verilogeval_humanRadio.click();

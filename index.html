@@ -563,12 +563,12 @@
                 },
                 color: "inherit",
               };
-              if (series == 1) {
-                chartOption.series[2].data.push({
-                  name: model["Model"],
-                  value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
-                });
-              }
+              // if (series == 1) {
+              //   chartOption.series[2].data.push({
+              //     name: model["Model"],
+              //     value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
+              //   });
+              // }
             }
           };
           const writeLineBest = (series, model) => {

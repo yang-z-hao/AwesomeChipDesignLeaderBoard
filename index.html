@@ -508,12 +508,12 @@
           .concat([[-50, 0]]);
         timeList.forEach((time, idx) => {
           const bestNonPromptedModel = nonPromptedModels
-            .filter((model) => Math.round(model["time"]) >= time)
+            .filter((model) => Math.round(model["time"]) <= time)
             .sort((a, b) => {
               return b["pass@1"][score] - a["pass@1"][score];
             })[0];
           const bestPromptedModel = promptedModels
-            .filter((model) => Math.round(model["time"]) >= time)
+            .filter((model) => Math.round(model["time"]) <= time)
             .sort((a, b) => {
               return b["pass@1"][score] - a["pass@1"][score];
             })[0];

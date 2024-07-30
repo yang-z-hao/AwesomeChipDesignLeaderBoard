@@ -461,7 +461,8 @@
           dataRow.appendChild(modelCell);
           var passCell = document.createElement("td");
           if (table == originTable) {
-            passCell.classList.add("text-danger");
+            // passCell.classList.add("text-danger");
+            passCell.style.color = "#0000FF";
           } else if (table == plusedTable) {
             // passCell.textContent = "⚡";
             passCell.classList.add("text-success");

@@ -576,7 +576,7 @@
               (point) => point.name == model["Model"],
             );
             if (point) {
-              chartOption.series[series].data.push({
+              chartOption.series[2].data.push({
                 name: model["Model"],
                 value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
               });

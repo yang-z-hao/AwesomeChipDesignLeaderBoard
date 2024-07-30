@@ -30,7 +30,7 @@
         "time":0
     },
     "StarCoder":{
-        "link":null,
+        "link":"https://arxiv.org/abs/2305.06161",
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":46.8,
@@ -42,7 +42,7 @@
         },
         "prompted":false,
         "size":15.0,
-        "time":0
+        "time":20230509
     },
     "VeriGen-Codegen-16B":{
         "link":"https://ieeexplore.ieee.org/abstract/document/10137086",
@@ -660,7 +660,7 @@
         "time":20240714
     },
     " CodeLlama-7b-Instruct":{
-        "link":null,
+        "link":"https://arxiv.org/abs/2308.12950",
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":43.1,
@@ -672,10 +672,10 @@
         },
         "prompted":false,
         "size":7.0,
-        "time":0
+        "time":20230825
     },
     "Deepseek-Coder-6.7b-Instruct":{
-        "link":null,
+        "link":"https://arxiv.org/abs/2401.14196",
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":52.2,
@@ -687,10 +687,10 @@
         },
         "prompted":false,
         "size":6.7,
-        "time":0
+        "time":20240125
     },
     "CodeQwen1.5-7B-Chat":{
-        "link":null,
+        "link":"https://arxiv.org/abs/2309.16609",
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":46.5,
@@ -702,10 +702,10 @@
         },
         "prompted":false,
         "size":7.0,
-        "time":0
+        "time":20240928
     },
     "Codegen2":{
-        "link":null,
+        "link":"https://arxiv.org/abs/2305.02309",
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":5.0,
@@ -717,10 +717,10 @@
         },
         "prompted":false,
         "size":16.0,
-        "time":0
+        "time":20230503
     },
     "Mistral-7B-v0.1":{
-        "link":null,
+        "link":"https://arxiv.org/abs/2310.06825",
         "open-data":"NONE",
         "pass@1":{
             "verilogeval_machine":36.9,
@@ -732,6 +732,6 @@
         },
         "prompted":false,
         "size":7.0,
-        "time":0
+        "time":20231010
     }
 }

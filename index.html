@@ -89,7 +89,7 @@
       #timeSlider {
         width: 200%; /* 将宽度设置为原来的两倍 */
       }
-      .time-slider-container {
+      .size-slider-container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -124,10 +124,10 @@
         <label class="btn btn-outline-primary" for="RTLLM_V1_1_Func">RTLLM_V1_1_Func</label>
       </div>
       <div id="chart" style="width: 90%; height: 600px"></div>
-      <div class="time-slider-container">
-        <label for="timeSlider">TimeLine:</label>
-        <input type="range" id="timeSlider" min="0" max="0" value="0" step="1">
-        <span id="timeValue">0</span>
+      <div class="size-slider-container">
+        <label for="sizeSlider">Max Size:</label>
+        <input type="range" id="sizeSlider" min="0" max="0" value="0" step="1">
+        <span id="sizeValue">0B</span>
       </div>
       <div class="container-fluid d-flex flex-row flex-nowrap">
         <div class="container-fluid d-flex flex-column align-items-center">
@@ -378,7 +378,7 @@
 
         data = globalData
           .filter((row) => {
-            return row["pass@1"][score] != null && row["time"] <= timeSlider.value;
+            return row["pass@1"][score] != null && row["size"] <= sizeSlider.value;
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
@@ -460,7 +460,7 @@
       const displayChart = (score) => {
         const data = globalData
           .filter((model) => {
-            return model["pass@1"][score] != null && model["time"] <= timeSlider.value;
+            return model["pass@1"][score] != null && model["size"] <= sizeSlider.value;
           })
           .sort((a, b) => {
             return b["pass@1"][score] - a["pass@1"][score];
@@ -608,29 +608,29 @@
         displayChart("RTLLM_V1_1_Func");
       });
 
-      const timeSlider = document.getElementById("timeSlider");
-      const timeValue = document.getElementById("timeValue");
+      const sizeSlider = document.getElementById("sizeSlider");
+      const sizeValue = document.getElementById("sizeValue");
 
-      const timeValues = [...new Set(globalData.map(item => item.time))]
-                          .filter(time => time !== 0)
+      const sizeValues = [...new Set(globalData.map(item => item.size))]
+                          .filter(size => size !== 0)
                           .sort((a, b) => a - b);
       // 计算 timeValues 数组中相邻元素的差值的最小值
-      const minStep = Math.min(...timeValues.slice(1).map((value, index) => value - timeValues[index]));
+      const minStep = Math.min(...sizeValues.slice(1).map((value, index) => value - sizeValues[index]));
 
-      timeSlider.min = Math.min(...timeValues);
-      timeSlider.max = Math.max(...timeValues);
-      timeSlider.step = 1;
-      timeSlider.value = timeSlider.max;
-      timeValue.textContent = timeSlider.value;
+      sizeSlider.min = Math.min(...sizeValues);
+      sizeSlider.max = Math.max(...sizeValues);
+      sizeSlider.step = 1;
+      sizeSlider.value = sizeSlider.max;
+      sizeValues.textContent = sizeSlider.value;
 
-      timeSlider.addEventListener("input", function () {
+      sizeSlider.addEventListener("input", function () {
         // 四舍五入到最近的 timeValues 数组中的值
-        const closestTime = timeValues.reduce((prev, curr) => {
-          return (Math.abs(curr - timeSlider.value) < Math.abs(prev - timeSlider.value) ? curr : prev);
+        const closestSize = sizeValues.reduce((prev, curr) => {
+          return (Math.abs(curr - sizeSlider.value) < Math.abs(prev - sizeSlider.value) ? curr : prev);
         });
 
-        timeSlider.value = closestTime;
-        timeValue.textContent = timeSlider.value;
+        sizeSlider.value = closestSize;
+        sizeValues.textContent = sizeSlider.value;
 
         const selectedScore = document.querySelector('input[name="btnradio"]:checked').id;
         clearTable();

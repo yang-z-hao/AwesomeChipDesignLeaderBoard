@@ -733,5 +733,50 @@
         "prompted":false,
         "size":7.0,
         "time":20231010
+    },
+    "AutoVCoder-Codellama":{
+        "link":"https://arxiv.org/abs/2407.18333",
+        "open-data":"NONE",
+        "pass@1":{
+            "verilogeval_machine":63.7,
+            "verilogeval_human":44.5,
+            "RTLLM_V1_0_Syntax":null,
+            "RTLLM_V1_0_Func":null,
+            "RTLLM_V1_1_Syntax":93.1,
+            "RTLLM_V1_1_Func":48.3
+        },
+        "prompted":true,
+        "size":7.0,
+        "time":20240721
+    },
+    "AutoVCoder-DeepSeek":{
+        "link":"https://arxiv.org/abs/2407.18333",
+        "open-data":"NONE",
+        "pass@1":{
+            "verilogeval_machine":69.0,
+            "verilogeval_human":46.9,
+            "RTLLM_V1_0_Syntax":null,
+            "RTLLM_V1_0_Func":null,
+            "RTLLM_V1_1_Syntax":100.0,
+            "RTLLM_V1_1_Func":51.7
+        },
+        "prompted":true,
+        "size":6.7,
+        "time":20240721
+    },
+    "AutoVCoder-CodeQwen":{
+        "link":"https://arxiv.org/abs/2407.18333",
+        "open-data":"NONE",
+        "pass@1":{
+            "verilogeval_machine":68.7,
+            "verilogeval_human":48.5,
+            "RTLLM_V1_0_Syntax":null,
+            "RTLLM_V1_0_Func":null,
+            "RTLLM_V1_1_Syntax":100.0,
+            "RTLLM_V1_1_Func":51.7
+        },
+        "prompted":true,
+        "size":7.0,
+        "time":20240721
     }
 }

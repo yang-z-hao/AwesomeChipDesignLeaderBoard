@@ -667,7 +667,7 @@
       // 计算 timeValues 数组中相邻元素的差值的最小值
       const minStep = Math.min(...sizeValues.slice(1).map((value, index) => value - sizeValues[index]));
 
-      sizeSlider.min = Math.min(...sizeValues);
+      sizeSlider.min = 0.5//Math.min(...sizeValues);
       sizeSlider.max = Math.max(...sizeValues);
       sizeSlider.step = 1;
       sizeSlider.value = sizeSlider.max;

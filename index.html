@@ -459,99 +459,111 @@
 
       const displayChart = (score) => {
         const data = globalData
-          .filter((model) => {
-            return model["pass@1"][score] != null && model["size"] <= sizeSlider.value;
-          })
-          .sort((a, b) => {
-            return b["pass@1"][score] - a["pass@1"][score];
-          });
+            .filter((model) => {
+                return model["pass@1"][score] != null && model["time"] <= timeSlider.value;
+            })
+            .sort((a, b) => {
+                return b["pass@1"][score] - a["pass@1"][score];
+            });
 
         const timeList = [
-          ...new Set(
-            data
-              .filter((model) => model["time"] != null)
-              .map((model) => Math.round(model["time"])),
-          ),
+            ...new Set(
+                data
+                    .filter((model) => model["time"] != null)
+                    .map((model) => Math.round(model["time"])),
+            ),
         ].sort((a, b) => {
-          return a - b;
+            return a - b;
         });
 
         chartOption.xAxis.data = timeList;
         chartOption.yAxis.max =
-          1 + Math.max(...data.map((model) => model["pass@1"][score]));
+            1 + Math.max(...data.map((model) => model["pass@1"][score]));
 
         const nonPromptedModels = data.filter(
-          (model) => model["prompted"] == false,
+            (model) => model["prompted"] == false,
         );
         const promptedModels = data.filter(
-          (model) => model["prompted"] == true,
+            (model) => model["prompted"] == true,
         );
 
-        [nonPromptedModels, promptedModels].forEach((series, idx) => {
-          series.forEach((model) => {
-            if (model["time"] == 0) {
-              chartOption.series[idx].markLine.data.push({
-                name: model["Model"],
-                yAxis: model["pass@1"][score],
-              });
-            } else {
-              chartOption.series[idx].data.push({
-                name: model["Model"],
-                value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
-              });
-            }
-          });
+        const nonPromptedBestModels = timeList.map((time) => {
+            return nonPromptedModels
+                .filter((model) => {
+                    return Math.round(model["time"]) <= time && model["time"] != 0;
+                })
+                .sort((a, b) => {
+                    return b["pass@1"][score] - a["pass@1"][score];
+                })[0];
+        });
+
+        const promptedBestModels = timeList.map((time) => {
+            return promptedModels
+                .filter((model) => {
+                    return Math.round(model["time"]) <= time && model["time"] != 0;
+                })
+                .sort((a, b) => {
+                    return b["pass@1"][score] - a["pass@1"][score];
+                })[0];
         });
 
         const offsets = [[50, 0]]
-          .concat(Array.from({ length: timeList.length - 2 }, () => [0, 0]))
-          .concat([[-50, 0]]);
+            .concat(Array.from({ length: timeList.length - 2 }, () => [0, 0]))
+            .concat([[-50, 0]]);
+        
+        const seriesData = [nonPromptedBestModels, promptedBestModels];
+        
+        seriesData.forEach((series, idx) => {
+            series.forEach((model, timeIdx) => {
+                if (model) {
+                    if (model["time"] == 0) {
+                        chartOption.series[idx].markLine.data.push({
+                            name: model["Model"],
+                            yAxis: model["pass@1"][score],
+                        });
+                    } else {
+                        const value = [`${Math.round(model["time"])}`, model["pass@1"][score]];
+                        if (timeIdx > 0) {
+                            chartOption.series[idx].markLine.data.push([
+                                { name: chartOption.series[idx].markLine.data[timeIdx - 1], value }
+                            ]);
+                        } else {
+                            chartOption.series[idx].markLine.data.push(value);
+                        }
+                    }
+                }
+            });
+        });
+
         timeList.forEach((time, idx) => {
-          const bestNonPromptedModel = nonPromptedModels
-            .filter((model) => {
-              return Math.round(model["time"]) <= time && model["time"] != 0;
-            })
-            .sort((a, b) => {
-              return b["pass@1"][score] - a["pass@1"][score];
-            })[0];
-          const bestPromptedModel = promptedModels
-            .filter((model) => {
-              return Math.round(model["time"]) <= time && model["time"] != 0;
-            })
-            .sort((a, b) => {
-              return b["pass@1"][score] - a["pass@1"][score];
-            })[0];
-          const hightLightBest = (series, model) => {
-            const point = chartOption.series[series].data.find(
-              (point) => point.name == model["Model"],
-            );
-            if (point) {
-                point.itemStyle = {
-                opacity: 1.0,
-              };
-              point.label = {
-                show: true,
-                position: "top",
-                offset: offsets[idx],
-                formatter: function (params) {
-                  return params.data.name;
-                },
-                color: "inherit",
-              };
-            }
-          };
-            
-          if (bestNonPromptedModel) {
-            hightLightBest(0, bestNonPromptedModel);
-          }
-          if (bestPromptedModel) {
-            hightLightBest(1, bestPromptedModel);
-          }
+            const hightLightBest = (series, model) => {
+                const point = chartOption.series[series].data.find(
+                    (point) => point.name == model["Model"],
+                );
+                if (point) {
+                    point.itemStyle = {
+                        opacity: 1.0,
+                    };
+                    point.label = {
+                        show: true,
+                        position: "top",
+                        offset: offsets[idx],
+                        formatter: function (params) {
+                            return params.data.name;
+                        },
+                        color: "inherit",
+                    };
+                }
+            };
+
+            hightLightBest(0, nonPromptedBestModels[idx]);
+            hightLightBest(1, promptedBestModels[idx]);
         });
 
         var chart = echarts.init(chartDom);
         chart.setOption(chartOption);
       };
+
 
       const verilogeval_humanRadio = document.getElementById("verilogeval_human");
       const verilogeval_machineRadio = document.getElementById("verilogeval_machine");

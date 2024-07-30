@@ -557,10 +557,12 @@
                 },
                 color: "inherit",
               };
-              chartOption.series[2].data.push({
-                name: model["Model"],
-                value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
-              });
+              if (idx == 1) {
+                chartOption.series[2].data.push({
+                  name: model["Model"],
+                  value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
+                });
+              }
             }
           };
             

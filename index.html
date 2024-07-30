@@ -573,6 +573,10 @@
                 },
                 color: "inherit",
               };
+              chartOption.series[idx+2].data.push({
+                name: model["Model"],
+                value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
+              });
             }
           };
             
@@ -585,9 +589,6 @@
         });
 
         var chart = echarts.init(chartDom);
-        chart.setOption(chartOption);
-        
-
         chart.setOption(chartOption);
       };
 

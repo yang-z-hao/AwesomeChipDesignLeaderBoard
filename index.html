@@ -238,7 +238,8 @@
         chartOption.xAxis.data = [];
         chartOption.series[0].data = [];
         chartOption.series[1].data = [];
-        chartOption.series[2].data = []; // Clear the new series data
+        chartOption.series[2].data = []; 
+        chartOption.series[3].data = []; 
         chartOption.series[0].markLine.data = [];
         chartOption.series[1].markLine.data = [];
       };
@@ -350,7 +351,22 @@
             type: "line",
             data: [],
             itemStyle: {
-              color: "#ff7f0e",
+              color: "#91cc75",
+              opacity: 1.0,
+            },
+            emphasis: {
+              focus: "series",
+            },
+            lineStyle: {
+              width: 2,
+            },
+          },
+          {
+            name: "promptedLine",
+            type: "line",
+            data: [],
+            itemStyle: {
+              color: "#5470c6",
               opacity: 1.0,
             },
             emphasis: {
@@ -589,6 +605,15 @@
         nonPromptedLineChartData.forEach((timeData) => {
           timeData.data.forEach((model) => {
             chartOption.series[2].data.push({
+              name: model["Model"],
+              value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
+            });
+          });
+        });
+
+        promptedLineChartData.forEach((timeData) => {
+          timeData.data.forEach((model) => {
+            chartOption.series[3].data.push({
               name: model["Model"],
               value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
             });

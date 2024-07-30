@@ -539,7 +539,13 @@
             .sort((a, b) => {
               return b["pass@1"][score] - a["pass@1"][score];
             })[0];
-
+          const bestModel = data
+            .filter((model) => {
+              return Math.round(model["time"]) <= time && model["time"] != 0;
+            })
+            .sort((a, b) => {
+              return b["pass@1"][score] - a["pass@1"][score];
+            })[0];
           const hightLightBest = (series, model) => {
             const point = chartOption.series[series].data.find(
               (point) => point.name == model["Model"],
@@ -565,12 +571,29 @@
               }
             }
           };
+          const writeLineBest = (series, model) => {
+            const point = chartOption.series[series].data.find(
+              (point) => point.name == model["Model"],
+            );
+            if (point) {
+              chartOption.series[series].data.push({
+                name: model["Model"],
+                value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
+              });
+            }
+          };
             
           if (bestNonPromptedModel) {
             hightLightBest(0, bestNonPromptedModel);
+            if (bestModel) {
+              writeLineBest(0, bestModel);
+            }
           }
           if (bestPromptedModel) {
             hightLightBest(1, bestPromptedModel);
+            if (bestModel) {
+              writeLineBest(1, bestModel);
+            }
           }
         });
 

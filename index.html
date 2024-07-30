@@ -668,7 +668,7 @@
       const minStep = Math.min(...sizeValues.slice(1).map((value, index) => value - sizeValues[index]));
 
       sizeSlider.min = 0.5//Math.min(...sizeValues);
-      sizeSlider.max = Math.max(...sizeValues);
+      sizeSlider.max = Math.max(...sizeValues)+1;
       sizeSlider.step = 1;
       sizeSlider.value = sizeSlider.max;
       sizeValue.textContent = sizeSlider.value;

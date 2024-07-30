@@ -284,7 +284,7 @@
         "size":6.7,
         "time":20231213
     },
-    "Llama2-13B-FT":{
+    "DataIsAllYouNeed-Llama2-13B-FT":{
         "link":"https://arxiv.org/abs/2403.11202",
         "open-data":"NONE",
         "pass@1":{
@@ -299,7 +299,7 @@
         "size":13.0,
         "time":20240317
     },
-    "Llama2-7B-FT":{
+    "DataIsAllYouNeed-Llama2-7B-FT":{
         "link":"https://arxiv.org/abs/2403.11202",
         "open-data":"NONE",
         "pass@1":{
@@ -569,7 +569,7 @@
         "size":7.0,
         "time":20240203
     },
-    "CodeLlama-Dis":{
+    "BetterV-CodeLlama-Dis":{
         "link":"https://arxiv.org/abs/2402.03375",
         "open-data":"NONE",
         "pass@1":{

@@ -539,18 +539,8 @@
           .concat(Array.from({ length: timeList.length - 2 }, () => [0, 0]))
           .concat([[-50, 0]]);
           
-        let nonPromptedLineChartData = [];
-        let promptedLineChartData = [];
 
         timeList.forEach((time, idx) => {
-          let nonPromptedTimeData = {
-            time: time,
-            data: []
-          };
-          let promptedTimeData = {
-            time: time,
-            data: []
-          };
           const bestNonPromptedModel = nonPromptedModels
             .filter((model) => {
               return Math.round(model["time"]) <= time && model["time"] != 0;
@@ -588,37 +578,15 @@
             
           if (bestNonPromptedModel) {
             hightLightBest(0, bestNonPromptedModel);
-            nonPromptedTimeData.data.push(bestNonPromptedModel);
           }
           if (bestPromptedModel) {
             hightLightBest(1, bestPromptedModel);
-            promptedTimeData.data.push(bestPromptedModel);
           }
         });
 
         var chart = echarts.init(chartDom);
         chart.setOption(chartOption);
-        nonPromptedLineChartData.push(nonPromptedTimeData);
-        promptedLineChartData.push(promptedTimeData);
-
-        // Add the nonPromptedLineChartData to the chart
-        nonPromptedLineChartData.forEach((timeData) => {
-          timeData.data.forEach((model) => {
-            chartOption.series[2].data.push({
-              name: model["Model"],
-              value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
-            });
-          });
-        });
-
-        promptedLineChartData.forEach((timeData) => {
-          timeData.data.forEach((model) => {
-            chartOption.series[3].data.push({
-              name: model["Model"],
-              value: [`${Math.round(model["time"])}`, model["pass@1"][score]],
-            });
-          });
-        });
+        
 
         chart.setOption(chartOption);
       };

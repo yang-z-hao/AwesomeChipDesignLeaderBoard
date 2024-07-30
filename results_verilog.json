@@ -176,7 +176,7 @@
             "RTLLM_V1_1_Func":41.4
         },
         "prompted":true,
-        "size":0.35,
+        "size":7.0,
         "time":20231213
     },
     "RTLCoder-DeepSeek-4bit":{

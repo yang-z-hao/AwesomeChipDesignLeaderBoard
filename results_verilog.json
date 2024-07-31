@@ -10,7 +10,7 @@
             "RTLLM_V1_1_Syntax":89.7,
             "RTLLM_V1_1_Func":37.9
         },
-        "prompted":true,
+        "prompted":false,
         "size":null,
         "time":0
     },
@@ -25,7 +25,7 @@
             "RTLLM_V1_1_Syntax":100.0,
             "RTLLM_V1_1_Func":65.5
         },
-        "prompted":true,
+        "prompted":false,
         "size":null,
         "time":0
     },

@@ -106,14 +106,14 @@
       <h1 class="text-nowrap mt-5">🏆 Awesome Chip Design Leader Board 🏆</h1>
       <h3 class="fw-light text-nowrap">
         <small id="warning"
-          >———— Verilog models ————<br
+          >———— Verilog Models ————<br
         /></small>
       </h3>
       <div class="btn-group" role="group" id="Benchmark">
         <input type="radio" class="btn-check" name="btnradio" id="verilogeval_machine" checked />
-        <label class="btn btn-outline-primary" for="verilogeval_machine">VerilogEval Machine</label>
+        <label class="btn btn-outline-primary" for="verilogeval_machine">VerilogEval-machine</label>
         <input type="radio" class="btn-check" name="btnradio" id="verilogeval_human" />
-        <label class="btn btn-outline-primary" for="verilogeval_human">VerilogEval Human</label>
+        <label class="btn btn-outline-primary" for="verilogeval_human">VerilogEval-human</label>
         <input type="radio" class="btn-check" name="btnradio" id="RTLLM_V1_1_Syntax" />
         <label class="btn btn-outline-primary" for="RTLLM_V1_1_Syntax">RTLLM V1.1 Syntax</label>
         <input type="radio" class="btn-check" name="btnradio" id="RTLLM_V1_1_Func" />
@@ -374,8 +374,8 @@
 
       const displayTable = (table, score) => {
         if (score.includes("verilogeval")) {
-          label1Element.textContent = "⚡Verilog-Eval Machine Tests⚡"
-          label2Element.textContent = "⚡Verilog-Eval Human Tests⚡"
+          label1Element.textContent = "⚡VerilogEval-machine Tests⚡"
+          label2Element.textContent = "⚡VerilogEval-human Tests⚡"
           
         } else if (score.includes("RTLLM_V1_0")) {
           label1Element.textContent = "⚡RTLLM V1.0 Syntax Tests⚡"
